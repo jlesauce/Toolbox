@@ -14,6 +14,7 @@
 	<!-- Project Properties -->
 	<properties>
 		<jdk.version>1.8</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Libraries Version -->
 		<junit.version>4.12</junit.version>
@@ -29,6 +30,8 @@
 		<!-- Maven Plugins Version -->
 		<eclipse.version>2.9</eclipse.version>
 		<compiler.version>3.2</compiler.version>
+		<source.version>2.0.4</source.version>
+		<javadoc.version>2.3</javadoc.version>
 		<jar.version>2.5</jar.version>
 		<assembly.version>2.4.1</assembly.version>
 		<dependency.version>2.5.1</dependency.version>
@@ -105,7 +108,8 @@
 	<!-- Build Options -->
 	<build>
 		<plugins>
-			<!-- Attach source code and Javadoc -->
+
+			<!-- Attach source code and Javadoc in Eclipse -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -115,6 +119,7 @@
 					<downloadJavadocs>false</downloadJavadocs>
 				</configuration>
 			</plugin>
+
 			<!-- Set a JDK compiler level -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -125,33 +130,46 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
-			<!-- Generate the Jar with dependencies -->
+
+			<!-- Generate JAR and Sources -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>${assembly.version}</version>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${source.version}</version>
 				<executions>
 					<execution>
-						<id>make-executable-jar-with-dependencies</id>
-						<phase>package</phase>
+						<id>attach-sources</id>
 						<goals>
-							<goal>single</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!-- Generate Javadoc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${javadoc.version}</version>
 				<configuration>
-					<finalName>${project.artifactId}-${project.version}</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<mainClass>${project.groupId}.${project.artifactId}.tools.WaveformGenerator</mainClass>
-						</manifest>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<!-- Specifies custom Javadoc Tags -->
+					<tags>
+						<tag>
+							<name>date</name>
+							<!-- tag for all places -->
+							<placement>a</placement>
+							<head>Creation Date :</head>
+						</tag>
+					</tags>
 				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
