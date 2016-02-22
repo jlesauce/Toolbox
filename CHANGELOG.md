@@ -19,7 +19,7 @@ Tags :
 
 ## [Unreleased]
 
-## [1.0.0]
+## [1.0.0] - 2016-02-22
 ### Added
 - First project commit
 - CHANGELOG.md file to track differences between each versions
