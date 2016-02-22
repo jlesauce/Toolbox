@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
 <!-- Configuration Resources -->
 <configuration>
-	<properties fileName="toolbox.properties" config-name="general" throwExceptionOnMissing="true" />
+	<properties fileName="toolbox.properties" config-name="general"
+		throwExceptionOnMissing="true" />
 </configuration>

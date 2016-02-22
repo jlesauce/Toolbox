@@ -93,7 +93,7 @@ public class MathUtils {
 	/**
 	 * Renvoie l'index de la valeur maximale, en valeur absolue, du tableau
 	 * spécifié. C'est-à-dire l'index de la valeur minimale du tableau si
-	 * <i>|min| > |max|</i> ou la valeur maximale si <i>|max| > |min|</i>.
+	 * <i>|min| &gt; |max|</i> ou la valeur maximale si <i>|max| &gt; |min|</i>.
 	 * 
 	 * @param tab
 	 *            Tableau dont on cherche le maximum en valeur absolue.

@@ -383,7 +383,7 @@ public class Window {
 	 * Permet de générer une fenêtre gaussienne de paramètre sigma sur N points.
 	 * 
 	 * @param sigma
-	 *            Paramètre sigma tel que sigma < 0.5.
+	 *            Paramètre sigma tel que sigma &lt; 0.5.
 	 * @param N
 	 *            Nombre de points de la fenêtre.
 	 * @return Tableau de taille N représentant les coefficients de la fenêtre.
