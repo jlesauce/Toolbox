@@ -25,10 +25,13 @@
 package org.jls.toolbox.util;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import org.apache.commons.configuration.CombinedConfiguration;
@@ -37,25 +40,27 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Manager permettant de gérer l'accès aux ressources de la librairie.
+ * Singleton managing the access to the resources of the application.
  * 
  * @author LE SAUCE Julien
- * @date Aug 27, 2015
+ * @date Aug 31, 2015
  */
 public class ResourceManager {
 
 	/*
-	 * Package resources
+	 * Resources
 	 */
-	public static final String RESOURCES_PATH =
-			ResourceManager.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-	public static final String IMG_PATH = "img";
-	public static final String PROPERTIES_PATH = "properties";
+	public static final String USER_DIR = System.getProperty("user.dir");
+	public static final String RESOURCES_DIR = "resources";
+	public static final String IMG_DIR = "img";
 
-	public static final String CONFIG_FILE = "configuration.xml";
+	public static final String RESOURCES_PATH = getResource(".").getFile();
+
+	public static final String LOG4J_FILE = "log4j2.xml";
+	public static final String CONFIG_FILE = "toolbox-configuration.xml";
 
 	/**
-	 * Instance unique de la classe.
+	 * Unique instance of the class.
 	 */
 	private static ResourceManager INSTANCE = null;
 
@@ -63,7 +68,7 @@ public class ResourceManager {
 	private CombinedConfiguration configuration;
 
 	/**
-	 * Permet d'instancier le manager de ressources.
+	 * Instanciates the resources manager.
 	 */
 	private ResourceManager () {
 		this.logger = LogManager.getLogger();
@@ -71,15 +76,9 @@ public class ResourceManager {
 		builder.setConfigurationBasePath(RESOURCES_PATH);
 		builder.setBasePath(RESOURCES_PATH);
 		try {
-			File configFile = new File(getClass().getClassLoader().getResource(CONFIG_FILE).getPath());
-			if (configFile.exists()) {
-				this.logger.debug("Configuration file found : {}", configFile.getAbsolutePath());
-				builder.setFile(configFile);
-				builder.setEncoding("UTF8");
-				this.configuration = builder.getConfiguration(true);
-			} else {
-				this.logger.error("Configuration file not found : {}", configFile.getAbsolutePath());
-			}
+			builder.setFile(getResourceAsFile(CONFIG_FILE));
+			builder.setEncoding("UTF8");
+			this.configuration = builder.getConfiguration(true);
 		} catch (Exception e) {
 			this.logger.fatal("An error occured while building application properties", e);
 			Runtime.getRuntime().exit(-1);
@@ -87,9 +86,9 @@ public class ResourceManager {
 	}
 
 	/**
-	 * Renvoie l'instance unique de la classe.
+	 * Returns the unique instance of this class.
 	 * 
-	 * @return Instance unique de la classe.
+	 * @return Unique instance of this class.
 	 */
 	public final static ResourceManager getInstance () {
 		if (ResourceManager.INSTANCE == null) {
@@ -99,38 +98,58 @@ public class ResourceManager {
 	}
 
 	/**
-	 * Permet d'accéder à une resource de l'application via le nom du fichier.
+	 * Finds the resource with the given name. A resource is some data (images,
+	 * audio, text, etc). The name of a resource is a '/'-separated path name
+	 * that identifies the resource.
 	 * 
 	 * @param name
-	 *            Nom du fichier à récupérer.
-	 * @return {@link URL} pointant vers la resource recherchée ou
-	 *         <code>null</code> si la resource n'existe pas.
+	 *            The resource name.
+	 * @return A {@link URL} object for reading the resource, or
+	 *         <code>null</code> if the resource could not be found or the
+	 *         invoker doesn't have adequate privileges to get the resource.
 	 */
 	public final static URL getResource (final String name) {
-		return Thread.currentThread().getContextClassLoader().getResource(name);
+		URL url = Thread.currentThread().getContextClassLoader().getResource(name);
+		if (url == null) {
+			url = Thread.currentThread().getContextClassLoader().getResource(RESOURCES_DIR + File.separator + name);
+		}
+		return url;
 	}
 
 	/**
-	 * Permet d'accéder à une resource de l'application via le nom du fichier.
+	 * Returns an {@link InputStream} for reading the specified resource.
 	 * 
 	 * @param name
-	 *            Nom du fichier à récupérer.
-	 * @return {@link InputStream} permettant d'accéder à la ressource
-	 *         recherchée ou <code>null</code> si la resource n'existe pas.
+	 *            The resource name.
+	 * @return An input stream for reading the resource, or <code>null</code> if
+	 *         the resource could not be found.
 	 */
 	public final static InputStream getResourceAsStream (final String name) {
 		return Thread.currentThread().getContextClassLoader().getResourceAsStream(name);
 	}
 
 	/**
-	 * Permet de mettre à jour la valeur associée à la clé de propriété
-	 * spécifiée.
+	 * Returns a {@link File} for reading the specified resource. The file is
+	 * created using the constructor {@link File#File(String)} where the
+	 * argument is the path of the resource given by
+	 * {@link ResourceManager#getResource(String)}.
+	 * 
+	 * @param name
+	 *            The resource name.
+	 * @return A file object to access the resource.
+	 */
+	public final static File getResourceAsFile (final String name) {
+		return new File(getResource(name).getPath());
+	}
+
+	/**
+	 * Sets the value of the specified property.
 	 * 
 	 * @param key
-	 *            Clé de propriété.
+	 *            The key of the property to set.
 	 * @param value
-	 *            Valeur associée à la clé spécifiée.
-	 * @return Valeur associée à la clé avant modification.
+	 *            The new value of this property
+	 * @return The old value of this property.
 	 */
 	public String setProperty (final String key, final String value) {
 		if (value != null && !value.isEmpty()) {
@@ -145,13 +164,12 @@ public class ResourceManager {
 	}
 
 	/**
-	 * Renvoie la chaîne de texte associée à la clé de propriété spécifiée. Si
-	 * la clé n'existe pas alors une exception de type
-	 * {@link IllegalArgumentException} est lancée.
+	 * Get a string associated with the given configuration key. If the key does
+	 * not exist, an {@link IllegalArgumentException} is thrown.
 	 * 
 	 * @param key
-	 *            Clé de propriété.
-	 * @return Chaîne de texte associée à la clé spécifiée.
+	 *            The configuration key.
+	 * @return The associated string.
 	 */
 	public String getString (final String key) {
 		if (this.configuration.containsKey(key)) {
@@ -161,15 +179,14 @@ public class ResourceManager {
 	}
 
 	/**
-	 * Renvoie la valeur de type <code>int</code> associée à la clé de propriété
-	 * spécifiée. Si la clé n'existe pas, alors une exception de type
-	 * {@link IllegalArgumentException} est lancée. Si la valeur ne peut être
-	 * parsée, alors une exception de type {@link NumberFormatException} est
-	 * lancée.
+	 * Get an integer associated with the given configuration key. If the key
+	 * does not exist, an {@link IllegalArgumentException} is thrown. If the
+	 * value cannot be decoded using {@link Integer#parseInt(String)}, a
+	 * {@link NumberFormatException} is thrown.
 	 * 
 	 * @param key
-	 *            Clé de propriété.
-	 * @return Valeur de type <code>int</code> associée à la clé spécifiée
+	 *            The configuration key.
+	 * @return The associated value.
 	 */
 	public int getInt (final String key) {
 		String str = getString(key);
@@ -184,46 +201,52 @@ public class ResourceManager {
 	}
 
 	/**
-	 * Renvoie une couleur de type {@link Color} construite à partir de la
-	 * valeur associée à la clé de propriété spécifiée. Si la clé n'existe pas,
-	 * alors une exception de type {@link IllegalArgumentException} est lancée.
-	 * Si la valeur ne peut être parsée, alors une exception de type
-	 * {@link IllegalArgumentException} est lancée.
+	 * Get a color associated with the given configuration key. If the key does
+	 * not exist, an {@link IllegalArgumentException} is thrown. If the value
+	 * cannot be decoded using {@link Color#decode(String)}, an
+	 * {@link IllegalArgumentException} is thrown.
 	 * 
 	 * @param key
-	 *            Clé de propriété.
-	 * @return Nouvelle instance de {@link Color} construite à partir de la
-	 *         valeur de propriété récupérée.
+	 *            The configuration key.
+	 * @return The associated color.
 	 */
 	public Color getColor (final String key) {
 		String str = getString(key);
 		if (!str.isEmpty()) {
 			try {
 				return Color.decode(str);
-			} catch (@SuppressWarnings("unused") Exception e) {
-				throw new IllegalArgumentException("Cannot create color : " + str);
+			} catch (Exception e) {
+				throw new IllegalArgumentException(
+						"String cannot be interpreted as a decimal, octal, or hexadecimal integer : " + str, e);
 			}
 		}
 		throw new IllegalStateException("Empty value");
 	}
 
 	/**
-	 * Renvoie une icône instanciée à partir du chemin récupéré grâce à la clé
-	 * de propriété spécifiée. Si la clé n'existe pas, alors une exception du
-	 * type {@link IllegalArgumentException} est lancée.
+	 * Get an icon associated with the given configuration key. If the key does
+	 * not exist, an {@link IllegalArgumentException} is thrown.
 	 * 
 	 * @param key
-	 *            Clé de propriété.
-	 * @return Nouvelle instance de {@link ImageIcon}.
+	 *            The configuration key.
+	 * @return The associated icon, or <code>null</code> if the resource could
+	 *         not be found.
 	 */
 	public ImageIcon getIcon (final String key) {
 		String filename = getString(key);
-		String path = IMG_PATH + File.separator + filename;
-		URL url = getResource(path);
-		if (url == null) {
-			throw new IllegalStateException("The file associated with key '" + key
-					+ "' does not exist or the invoker doesn't have adequate  privileges to get the resource");
+		String path = IMG_DIR + "/" + filename;
+
+		// Creates an icon from the stream
+		try (InputStream stream = getResourceAsStream(path)) {
+			if (stream == null) {
+				throw new IllegalArgumentException("Resource not found : " + path);
+			}
+			BufferedImage bi = ImageIO.read(stream);
+			ImageIcon icon = new ImageIcon(bi);
+			return icon;
+		} catch (IOException e) {
+			this.logger.error("An error occurred retrieving icon : {}", path, e);
+			return null;
 		}
-		return new ImageIcon(url);
 	}
 }

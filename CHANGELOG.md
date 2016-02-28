@@ -19,6 +19,16 @@ Tags :
 
 ## [Unreleased]
 
+## [1.0.1] - 2016-02-28
+### Fixed
+- ResourceManager now working on Windows (replaced "\" given by File.separator by "/" to
+	access resources in sub-directories) (fixes #2)
+
+### Changed
+- Property keys are now preceded by "toolbox." to avoid overriding
+- Translated Javadoc of ResourceManager.java (refs #1)
+
+
 ## [1.0.0] - 2016-02-22
 ### Added
 - First project commit

@@ -39,10 +39,12 @@ public class TimeUtils {
 
 	private static final ResourceManager props = ResourceManager.getInstance();
 
-	private static final SimpleDateFormat fileFormat = new SimpleDateFormat(props.getString("pattern.format.date.file"));
+	private static final SimpleDateFormat fileFormat =
+			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.file"));
 	private static final SimpleDateFormat consoleFormat =
-			new SimpleDateFormat(props.getString("pattern.format.date.console"));
-	private static final SimpleDateFormat zuluFormat = new SimpleDateFormat(props.getString("pattern.format.date.zulu"));
+			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.console"));
+	private static final SimpleDateFormat zuluFormat =
+			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.zulu"));
 
 	static {
 		fileFormat.setTimeZone(TimeZone.getDefault());

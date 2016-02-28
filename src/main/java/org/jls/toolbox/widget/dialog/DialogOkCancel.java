@@ -101,8 +101,8 @@ public class DialogOkCancel extends Dialog implements ActionListener {
 	@Override
 	protected void createComponents () {
 		ResourceManager p = ResourceManager.getInstance();
-		this.btnOk = new JButton(p.getString("label.ok"));
-		this.btnCancel = new JButton(p.getString("label.cancel"));
+		this.btnOk = new JButton(p.getString("toolbox.label.ok"));
+		this.btnCancel = new JButton(p.getString("toolbox.label.cancel"));
 	}
 
 	@Override

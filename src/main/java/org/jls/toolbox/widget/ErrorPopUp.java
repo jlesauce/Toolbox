@@ -83,7 +83,7 @@ public class ErrorPopUp extends JDialog {
 		final JDialog dialog = new JDialog(parent, true);
 		JPanel panel = new JPanel();
 		ResourceManager p = ResourceManager.getInstance();
-		ImageIcon icon = p.getIcon("icon.error");
+		ImageIcon icon = p.getIcon("toolbox.icon.error");
 		Image img = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		icon = new ImageIcon(img);
 
