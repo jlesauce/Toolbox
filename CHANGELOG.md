@@ -19,6 +19,12 @@ Tags :
 
 ## [Unreleased]
 
+## [1.0.2] - 2017-09-10
+### Fixed
+- Updated Bounce library dependency
+### CHANGED
+- Removed unused compiler option @SuppressWarning
+
 ## [1.0.1] - 2016-02-28
 ### Fixed
 - ResourceManager now working on Windows (replaced "\" given by File.separator by "/" to
