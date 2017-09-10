@@ -91,7 +91,7 @@
 
 		<!-- Bounce -->
 		<dependency>
-			<groupId>org.bounce</groupId>
+			<groupId>nz.ac.waikato.cms.weka.thirdparty</groupId>
 			<artifactId>bounce</artifactId>
 			<version>${bounce.version}</version>
 		</dependency>
