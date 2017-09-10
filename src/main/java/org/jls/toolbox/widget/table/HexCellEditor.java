@@ -74,7 +74,7 @@ public class HexCellEditor extends DefaultCellEditor {
 			// l'édition
 			getCellEditorValue();
 			return super.stopCellEditing();
-		} catch (@SuppressWarnings("unused") Exception e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}

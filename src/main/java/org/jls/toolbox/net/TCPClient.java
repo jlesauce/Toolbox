@@ -305,7 +305,7 @@ public class TCPClient implements Client, Runnable {
 			// Reads the message's size specified by the server
 			nbBytes = this.iStream.read(msgSize);
 			this.logger.debug("Reading message buffer size, received bytes = {}", nbBytes);
-		} catch (@SuppressWarnings("unused") SocketTimeoutException e) {
+		} catch (SocketTimeoutException e) {
 			throw new SocketTimeoutException("Timeout occurred on " + this.com.getId() + " link");
 		} catch (Exception e) {
 			throw new ConnectionLost("Connection with server " + this.com.getId() + " lost", e);

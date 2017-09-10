@@ -101,7 +101,7 @@ public class HexAddressFormatter extends DefaultFormatter {
 			// On essaye de parser la chaîne de texte en hexadécimal
 			try {
 				val = Long.parseLong(clearString(text), 16);
-			} catch (@SuppressWarnings("unused") NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				throw new ParseException("Incorrect hexadecimal string", 0);
 			}
 			// Si la valeur est supérieure au maximum

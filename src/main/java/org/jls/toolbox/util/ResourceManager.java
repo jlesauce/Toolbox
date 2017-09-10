@@ -193,7 +193,7 @@ public class ResourceManager {
 		if (!str.isEmpty()) {
 			try {
 				return Integer.parseInt(str);
-			} catch (@SuppressWarnings("unused") Exception e) {
+			} catch (Exception e) {
 				throw new NumberFormatException("Cannot parse value to integer : " + str);
 			}
 		}

@@ -99,7 +99,7 @@ public class DeciFormatter extends DefaultFormatter {
 			// On essaye de parser la chaîne de texte en décimal
 			try {
 				val = Long.parseLong(text);
-			} catch (@SuppressWarnings("unused") NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				throw new ParseException("Incorrect decimal string", 0);
 			}
 			// Si la valeur est supérieure au maximum

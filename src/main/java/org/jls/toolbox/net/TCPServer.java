@@ -91,7 +91,6 @@ public class TCPServer implements Server, Runnable, InterfaceListener {
 			// Waits for new clients to connect
 			while (isRunning() && !this.serverSocket.isClosed()) {
 				try {
-					@SuppressWarnings ("resource")
 					Socket socket = this.serverSocket.accept();
 					Interface com = new Interface(socket.getInetAddress().toString(), socket.getInetAddress(),
 							socket.getPort());

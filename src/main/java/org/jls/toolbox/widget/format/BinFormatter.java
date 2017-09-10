@@ -127,7 +127,7 @@ public class BinFormatter extends DefaultFormatter {
 			// On essaye de parser la chaîne de texte binaire en décimal
 			try {
 				val = Long.parseLong(text, 2);
-			} catch (@SuppressWarnings("unused") NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				throw new ParseException("Incorrect binary string", 0);
 			}
 			// Si la valeur est supérieure au maximum

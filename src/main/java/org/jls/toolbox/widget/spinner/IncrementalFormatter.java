@@ -74,7 +74,7 @@ public class IncrementalFormatter extends DefaultFormatter {
 			// On essaye de parser la chaîne de texte en décimal
 			try {
 				val = Integer.parseInt(text);
-			} catch (@SuppressWarnings("unused") NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				throw new ParseException("Incorrect decimal value.", 0);
 			}
 			// Si la valeur est supérieure au maximum
