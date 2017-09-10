@@ -35,6 +35,7 @@
 		<jar.version>2.5</jar.version>
 		<assembly.version>2.4.1</assembly.version>
 		<dependency.version>2.5.1</dependency.version>
+		<surefire.version>2.20</surefire.version>
 	</properties>
 
 	<!-- Project Libraries -->
@@ -171,6 +172,17 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- JUnit Surefire framework -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.version}</version>
+				<configuration>
+					<printSummary>true</printSummary>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
