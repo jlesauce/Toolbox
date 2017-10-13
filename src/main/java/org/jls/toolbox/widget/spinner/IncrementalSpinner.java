@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -39,25 +39,25 @@ import javax.swing.SpinnerModel;
  */
 public class IncrementalSpinner extends JSpinner {
 
-	private static final long serialVersionUID = 2778798208761728109L;
+    private static final long serialVersionUID = 2778798208761728109L;
 
-	/**
-	 * Permet d'instancier un spinner incrémental.
-	 * 
-	 * @param spinnerModel
-	 *            Modèle de données du spinner.
-	 */
-	public IncrementalSpinner (IncrementalSpinnerModel spinnerModel) {
-		super(spinnerModel);
-	}
+    /**
+     * Permet d'instancier un spinner incrémental.
+     * 
+     * @param spinnerModel
+     *            Modèle de données du spinner.
+     */
+    public IncrementalSpinner(IncrementalSpinnerModel spinnerModel) {
+        super(spinnerModel);
+    }
 
-	@Override
-	protected JComponent createEditor (SpinnerModel model) {
-		return new IncrementalEditor(this);
-	}
+    @Override
+    protected JComponent createEditor (SpinnerModel model) {
+        return new IncrementalEditor(this);
+    }
 
-	@Override
-	public IncrementalSpinnerModel getModel () {
-		return (IncrementalSpinnerModel) super.getModel();
-	}
+    @Override
+    public IncrementalSpinnerModel getModel () {
+        return (IncrementalSpinnerModel) super.getModel();
+    }
 }

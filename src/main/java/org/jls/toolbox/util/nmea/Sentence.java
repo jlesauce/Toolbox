@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util.nmea;
 
@@ -34,80 +34,80 @@ import java.util.ArrayList;
  */
 public class Sentence {
 
-	private final String dataType;
-	private final ArrayList<String> fields;
-	private long checkSum;
+    private final String dataType;
+    private final ArrayList<String> fields;
+    private long checkSum;
 
-	/**
-	 * Permet de créer une chaîne NMEA à partir de son identifiant.
-	 * 
-	 * @param dataType
-	 *            Identifiant de la chaîne.
-	 */
-	public Sentence (String dataType) {
-		this.dataType = dataType;
-		this.fields = new ArrayList<>();
-		this.checkSum = 0;
-	}
+    /**
+     * Permet de créer une chaîne NMEA à partir de son identifiant.
+     * 
+     * @param dataType
+     *            Identifiant de la chaîne.
+     */
+    public Sentence(String dataType) {
+        this.dataType = dataType;
+        this.fields = new ArrayList<>();
+        this.checkSum = 0;
+    }
 
-	/**
-	 * Permet d'ajouter une donnée.
-	 * 
-	 * @param value
-	 *            Valeur à ajouter.
-	 */
-	public void put (String value) {
-		this.fields.add(value);
-	}
+    /**
+     * Permet d'ajouter une donnée.
+     * 
+     * @param value
+     *            Valeur à ajouter.
+     */
+    public void put (String value) {
+        this.fields.add(value);
+    }
 
-	/**
-	 * Permet de calculer le checksum de cette chaîne NMEA. Le checksum est
-	 * calculé sur la chaîne de texte NMEA en omettant les caractères $ et *. Si
-	 * on a la chaîne $GPA,a,b,c,1,2,3*0 alors le checksum sera calculé sur la
-	 * chaîne GPA,a,b,c,1,2,3. Le checksum est calculé en effectuant un XOR
-	 * caractère par caractère sur la chaîne obtenue.
-	 * 
-	 * @return Valeur du checksum obtenu sur cette chaîne NMEA.
-	 */
-	public long computeCheckSum () {
-		long checksum = 0;
-		// Création de la chaîne sans les $ et *
-		String str = this.dataType;
-		for (String value : this.fields) {
-			str += "," + value;
-		}
-		for (char c : str.toCharArray()) {
-			checksum = checksum ^ c;
-		}
-		return checksum;
-	}
+    /**
+     * Permet de calculer le checksum de cette chaîne NMEA. Le checksum est calculé
+     * sur la chaîne de texte NMEA en omettant les caractères $ et *. Si on a la
+     * chaîne $GPA,a,b,c,1,2,3*0 alors le checksum sera calculé sur la chaîne
+     * GPA,a,b,c,1,2,3. Le checksum est calculé en effectuant un XOR caractère par
+     * caractère sur la chaîne obtenue.
+     * 
+     * @return Valeur du checksum obtenu sur cette chaîne NMEA.
+     */
+    public long computeCheckSum () {
+        long checksum = 0;
+        // Création de la chaîne sans les $ et *
+        String str = this.dataType;
+        for (String value : this.fields) {
+            str += "," + value;
+        }
+        for (char c : str.toCharArray()) {
+            checksum = checksum ^ c;
+        }
+        return checksum;
+    }
 
-	/**
-	 * Permet de vérifier que le checksum fourni avec la chaîne NMEA est
-	 * correct. Pour cela on recalcule le checksum avec les données stockées
-	 * puis on compare les deux checksums.
-	 * 
-	 * @return <code>true</code> si le checksum recalculé correspond au checksum
-	 *         fourni avec la chaîne NMEA, <code>false</code> sinon.
-	 */
-	public boolean isValidChecksum () {
-		long newChecksum = computeCheckSum();
-		return newChecksum == this.checkSum ? true : false;
-	}
+    /**
+     * Permet de vérifier que le checksum fourni avec la chaîne NMEA est correct.
+     * Pour cela on recalcule le checksum avec les données stockées puis on compare
+     * les deux checksums.
+     * 
+     * @return <code>true</code> si le checksum recalculé correspond au checksum
+     *         fourni avec la chaîne NMEA, <code>false</code> sinon.
+     */
+    public boolean isValidChecksum () {
+        long newChecksum = computeCheckSum();
+        return newChecksum == this.checkSum ? true : false;
+    }
 
-	public String getDataType () {
-		return this.dataType;
-	}
+    public String getDataType () {
+        return this.dataType;
+    }
 
-	public ArrayList<String> getFields () {
-		return this.fields;
-	}
+    public ArrayList<String> getFields () {
+        return this.fields;
+    }
 
-	public long getCheckSum () {
-		return this.checkSum;
-	}
+    public long getCheckSum () {
+        return this.checkSum;
+    }
 
-	public void setCheckSum (long checkSum) {
-		this.checkSum = checkSum;
-	}
+    public void setCheckSum (long checkSum) {
+        this.checkSum = checkSum;
+    }
 }

@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget;
 
@@ -39,35 +39,35 @@ import javax.swing.text.StyledDocument;
  */
 public class Document extends DefaultStyledDocument {
 
-	private static final long serialVersionUID = 8868561777832804162L;
+    private static final long serialVersionUID = 8868561777832804162L;
 
-	private final Integer maxLength;
+    private final Integer maxLength;
 
-	/**
-	 * Permet d'instancier {@link UnknownError} {@link DefaultStyledDocument}.
-	 */
-	public Document () {
-		this(null);
-	}
+    /**
+     * Permet d'instancier {@link UnknownError} {@link DefaultStyledDocument}.
+     */
+    public Document() {
+        this(null);
+    }
 
-	/**
-	 * Permet d'instancier {@link UnknownError} {@link DefaultStyledDocument}.
-	 * 
-	 * @param maxLength
-	 *            Permet de spécifier la taille maximale du buffer en nombre de
-	 *            caractères ( <code>null</code> permet de spécifier une taille
-	 *            illimitée).
-	 */
-	public Document (final Integer maxLength) {
-		super();
-		this.maxLength = maxLength;
-	}
+    /**
+     * Permet d'instancier {@link UnknownError} {@link DefaultStyledDocument}.
+     * 
+     * @param maxLength
+     *            Permet de spécifier la taille maximale du buffer en nombre de
+     *            caractères ( <code>null</code> permet de spécifier une taille
+     *            illimitée).
+     */
+    public Document(final Integer maxLength) {
+        super();
+        this.maxLength = maxLength;
+    }
 
-	@Override
-	public void insertString (int offs, String str, AttributeSet a) throws BadLocationException {
-		super.insertString(offs, str, a);
-		if (this.maxLength != null && getLength() > this.maxLength) {
-			remove(0, str.length());
-		}
-	}
+    @Override
+    public void insertString (int offs, String str, AttributeSet a) throws BadLocationException {
+        super.insertString(offs, str, a);
+        if (this.maxLength != null && getLength() > this.maxLength) {
+            remove(0, str.length());
+        }
+    }
 }

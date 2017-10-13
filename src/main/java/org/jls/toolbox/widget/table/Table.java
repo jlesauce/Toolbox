@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.table;
 
@@ -38,42 +38,42 @@ import javax.swing.JViewport;
  */
 public class Table extends JTable {
 
-	private static final long serialVersionUID = -4174786911861251037L;
+    private static final long serialVersionUID = -4174786911861251037L;
 
-	public Table () {
-		super();
-	}
+    public Table() {
+        super();
+    }
 
-	public Table (int numRows, int numColumns) {
-		super(numRows, numColumns);
-	}
+    public Table(int numRows, int numColumns) {
+        super(numRows, numColumns);
+    }
 
-	public Table (Object[][] rowData, Object[] columnNames) {
-		super(rowData, columnNames);
-	}
+    public Table(Object[][] rowData, Object[] columnNames) {
+        super(rowData, columnNames);
+    }
 
-	public Table (TableModel dm) {
-		super(dm);
-	}
+    public Table(TableModel dm) {
+        super(dm);
+    }
 
-	@Override
-	public Dimension getPreferredSize () {
-		if (getParent() instanceof JViewport) {
-			if (((JViewport) getParent()).getWidth() > super.getPreferredSize().width) {
-				return getMinimumSize();
-			}
-		}
-		return super.getPreferredSize();
-	}
+    @Override
+    public Dimension getPreferredSize () {
+        if (getParent() instanceof JViewport) {
+            if (((JViewport) getParent()).getWidth() > super.getPreferredSize().width) {
+                return getMinimumSize();
+            }
+        }
+        return super.getPreferredSize();
+    }
 
-	@Override
-	public boolean getScrollableTracksViewportWidth () {
-		if (this.autoResizeMode != AUTO_RESIZE_OFF) {
-			if (getParent() instanceof JViewport) {
-				return (((JViewport) getParent()).getWidth() > getPreferredSize().width);
-			}
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean getScrollableTracksViewportWidth () {
+        if (this.autoResizeMode != AUTO_RESIZE_OFF) {
+            if (getParent() instanceof JViewport) {
+                return (((JViewport) getParent()).getWidth() > getPreferredSize().width);
+            }
+            return true;
+        }
+        return false;
+    }
 }

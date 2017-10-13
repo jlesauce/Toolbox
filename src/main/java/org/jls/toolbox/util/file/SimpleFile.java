@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util.file;
 
@@ -39,31 +39,31 @@ import java.nio.file.Paths;
  */
 public class SimpleFile extends File {
 
-	private static final long serialVersionUID = 296195692713196365L;
+    private static final long serialVersionUID = 296195692713196365L;
 
-	/**
-	 * Permet d'instancier un nouveau fichier à partir de son chemin.
-	 * 
-	 * @param path
-	 *            Chemin du fichier.
-	 */
-	public SimpleFile (final String path) {
-		super(path);
-	}
+    /**
+     * Permet d'instancier un nouveau fichier à partir de son chemin.
+     * 
+     * @param path
+     *            Chemin du fichier.
+     */
+    public SimpleFile(final String path) {
+        super(path);
+    }
 
-	/**
-	 * Permet de lire le fichier en tant que chaîne de texte.
-	 * 
-	 * @return Chaîne de texte représentant le contenu du fichier.
-	 * @throws IOException
-	 *             Si une erreur survient lors de la lecture du fichier.
-	 */
-	public String readFile () throws IOException {
-		return new String(Files.readAllBytes(Paths.get(getPath())));
-	}
+    /**
+     * Permet de lire le fichier en tant que chaîne de texte.
+     * 
+     * @return Chaîne de texte représentant le contenu du fichier.
+     * @throws IOException
+     *             Si une erreur survient lors de la lecture du fichier.
+     */
+    public String readFile () throws IOException {
+        return new String(Files.readAllBytes(Paths.get(getPath())));
+    }
 
-	@Override
-	public String toString () {
-		return this.getName();
-	}
+    @Override
+    public String toString () {
+        return this.getName();
+    }
 }

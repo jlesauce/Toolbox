@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.format;
 
@@ -39,56 +39,56 @@ import javax.swing.JSpinner;
  */
 public class Format {
 
-	/**
-	 * Format décimal par défaut permettant d'afficher des nombres entiers ou à
-	 * virgule.
-	 * 
-	 * @return Format décimal.
-	 */
-	public static DecimalFormat getDecimalFormat () {
-		return getDecimalFormat("#,##0.###", ',', '.');
-	}
+    /**
+     * Format décimal par défaut permettant d'afficher des nombres entiers ou à
+     * virgule.
+     * 
+     * @return Format décimal.
+     */
+    public static DecimalFormat getDecimalFormat () {
+        return getDecimalFormat("#,##0.###", ',', '.');
+    }
 
-	/**
-	 * Format décimal permettant d'afficher des nombres entiers ou à virgule.
-	 * 
-	 * @param groupingSeperator
-	 *            Caractère de séparation des milliers.
-	 * @param decimalSeparator
-	 *            Caractère de séparation des nombres à virgule.
-	 * @return Format décimal.
-	 */
-	public static DecimalFormat getDecimalFormat (char groupingSeperator, char decimalSeparator) {
-		return getDecimalFormat("#,##0.###", groupingSeperator, decimalSeparator);
-	}
+    /**
+     * Format décimal permettant d'afficher des nombres entiers ou à virgule.
+     * 
+     * @param groupingSeperator
+     *            Caractère de séparation des milliers.
+     * @param decimalSeparator
+     *            Caractère de séparation des nombres à virgule.
+     * @return Format décimal.
+     */
+    public static DecimalFormat getDecimalFormat (char groupingSeperator, char decimalSeparator) {
+        return getDecimalFormat("#,##0.###", groupingSeperator, decimalSeparator);
+    }
 
-	/**
-	 * Format décimal permettant d'afficher des nombres entiers ou à virgule.
-	 * 
-	 * @param pattern
-	 *            Voir {@link DecimalFormat}.
-	 * @return Format décimal.
-	 */
-	public static DecimalFormat getDecimalFormat (final String pattern) {
-		DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-		return new DecimalFormat(pattern, symbols);
-	}
+    /**
+     * Format décimal permettant d'afficher des nombres entiers ou à virgule.
+     * 
+     * @param pattern
+     *            Voir {@link DecimalFormat}.
+     * @return Format décimal.
+     */
+    public static DecimalFormat getDecimalFormat (final String pattern) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        return new DecimalFormat(pattern, symbols);
+    }
 
-	/**
-	 * Format décimal permettant d'afficher des nombres entiers ou à virgule.
-	 * 
-	 * @param pattern
-	 *            Voir {@link DecimalFormat}.
-	 * @param groupingSeperator
-	 *            Caractère de séparation des milliers.
-	 * @param decimalSeparator
-	 *            Caractère de séparation des nombres à virgule.
-	 * @return Format décimal.
-	 */
-	public static DecimalFormat getDecimalFormat (final String pattern, char groupingSeperator, char decimalSeparator) {
-		DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-		symbols.setDecimalSeparator(decimalSeparator);
-		symbols.setGroupingSeparator(groupingSeperator);
-		return new DecimalFormat(pattern, symbols);
-	}
+    /**
+     * Format décimal permettant d'afficher des nombres entiers ou à virgule.
+     * 
+     * @param pattern
+     *            Voir {@link DecimalFormat}.
+     * @param groupingSeperator
+     *            Caractère de séparation des milliers.
+     * @param decimalSeparator
+     *            Caractère de séparation des nombres à virgule.
+     * @return Format décimal.
+     */
+    public static DecimalFormat getDecimalFormat (final String pattern, char groupingSeperator, char decimalSeparator) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(decimalSeparator);
+        symbols.setGroupingSeparator(groupingSeperator);
+        return new DecimalFormat(pattern, symbols);
+    }
 }

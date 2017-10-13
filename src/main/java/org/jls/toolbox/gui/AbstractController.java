@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.gui;
 
@@ -32,31 +32,31 @@ package org.jls.toolbox.gui;
  */
 public abstract class AbstractController {
 
-	private final AbstractModel model;
+    private final AbstractModel model;
 
-	/**
-	 * Instanciates a default controller.
-	 * 
-	 * @param model
-	 *            Data model associated with this controller.
-	 */
-	public AbstractController (final AbstractModel model) {
-		this.model = model;
-	}
+    /**
+     * Instanciates a default controller.
+     * 
+     * @param model
+     *            Data model associated with this controller.
+     */
+    public AbstractController(final AbstractModel model) {
+        this.model = model;
+    }
 
-	/**
-	 * Creates the associated view.
-	 * 
-	 * @return Associated view.
-	 */
-	public abstract AbstractView createGui ();
+    /**
+     * Creates the associated view.
+     * 
+     * @return Associated view.
+     */
+    public abstract AbstractView createGui ();
 
-	/**
-	 * Returns the data model.
-	 * 
-	 * @return Data model.
-	 */
-	public AbstractModel getModel () {
-		return this.model;
-	}
+    /**
+     * Returns the data model.
+     * 
+     * @return Data model.
+     */
+    public AbstractModel getModel () {
+        return this.model;
+    }
 }

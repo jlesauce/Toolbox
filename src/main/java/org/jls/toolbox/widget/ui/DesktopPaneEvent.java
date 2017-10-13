@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.ui;
 
@@ -36,61 +36,61 @@ import org.jls.toolbox.widget.InternalFrame;
  */
 public class DesktopPaneEvent {
 
-	private final DesktopPane source;
+    private final DesktopPane source;
 
-	private InternalFrame frame;
+    private InternalFrame frame;
 
-	/**
-	 * Permet d'instancier un évènement.
-	 * 
-	 * @param src
-	 *            Source de l'évènement.
-	 */
-	public DesktopPaneEvent (final DesktopPane src) {
-		this(src, null);
-	}
+    /**
+     * Permet d'instancier un évènement.
+     * 
+     * @param src
+     *            Source de l'évènement.
+     */
+    public DesktopPaneEvent(final DesktopPane src) {
+        this(src, null);
+    }
 
-	/**
-	 * Permet d'instancier un évènement.
-	 * 
-	 * @param src
-	 *            Source de l'évènement.
-	 * @param srcFrame
-	 *            Fenêtre source de l'évènement.
-	 */
-	public DesktopPaneEvent (final DesktopPane src, final InternalFrame srcFrame) {
-		this.source = src;
-		this.frame = srcFrame;
-	}
+    /**
+     * Permet d'instancier un évènement.
+     * 
+     * @param src
+     *            Source de l'évènement.
+     * @param srcFrame
+     *            Fenêtre source de l'évènement.
+     */
+    public DesktopPaneEvent(final DesktopPane src, final InternalFrame srcFrame) {
+        this.source = src;
+        this.frame = srcFrame;
+    }
 
-	/**
-	 * Renvoie la source de l'évènement.
-	 * 
-	 * @return Source de l'évènement.
-	 */
-	public DesktopPane getSource () {
-		return this.source;
-	}
+    /**
+     * Renvoie la source de l'évènement.
+     * 
+     * @return Source de l'évènement.
+     */
+    public DesktopPane getSource () {
+        return this.source;
+    }
 
-	/**
-	 * Renvoie la fenêtre source de l'évènement si l'évènement a été déclenché
-	 * par une fenêtre interne.
-	 * 
-	 * @return Fenêtre source de l'évènement si l'évènement a été déclenché par
-	 *         une fenêtre interne, <code>null</code> sinon.
-	 */
-	public InternalFrame getFrame () {
-		return this.frame;
-	}
+    /**
+     * Renvoie la fenêtre source de l'évènement si l'évènement a été déclenché par
+     * une fenêtre interne.
+     * 
+     * @return Fenêtre source de l'évènement si l'évènement a été déclenché par une
+     *         fenêtre interne, <code>null</code> sinon.
+     */
+    public InternalFrame getFrame () {
+        return this.frame;
+    }
 
-	/**
-	 * Permet de spécifier la fenêtre source de l'évènement s'il a été déclenché
-	 * par une fenêtre interne.
-	 * 
-	 * @param frame
-	 *            Fenêtre source de l'évènement.
-	 */
-	public void setFrame (InternalFrame frame) {
-		this.frame = frame;
-	}
+    /**
+     * Permet de spécifier la fenêtre source de l'évènement s'il a été déclenché par
+     * une fenêtre interne.
+     * 
+     * @param frame
+     *            Fenêtre source de l'évènement.
+     */
+    public void setFrame (InternalFrame frame) {
+        this.frame = frame;
+    }
 }

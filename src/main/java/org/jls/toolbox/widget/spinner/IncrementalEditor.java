@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -37,32 +37,32 @@ import javax.swing.JTextField;
  */
 public class IncrementalEditor extends DefaultEditor {
 
-	private static final long serialVersionUID = -5089568991074611043L;
+    private static final long serialVersionUID = -5089568991074611043L;
 
-	/**
-	 * Permet d'instancier l'éditeur et de lui associer le spinner.
-	 * 
-	 * @param spinner
-	 *            Spinner incrémental.
-	 */
-	public IncrementalEditor (IncrementalSpinner spinner) {
-		super(spinner);
-		IncrementalSpinnerModel model = spinner.getModel();
-		IncrementalFormatter formatter = new IncrementalFormatter(model.getMinimum(), model.getMaximum());
-		JFormattedTextField ftextfield = new JFormattedTextField(formatter);
+    /**
+     * Permet d'instancier l'éditeur et de lui associer le spinner.
+     * 
+     * @param spinner
+     *            Spinner incrémental.
+     */
+    public IncrementalEditor(IncrementalSpinner spinner) {
+        super(spinner);
+        IncrementalSpinnerModel model = spinner.getModel();
+        IncrementalFormatter formatter = new IncrementalFormatter(model.getMinimum(), model.getMaximum());
+        JFormattedTextField ftextfield = new JFormattedTextField(formatter);
 
-		ftextfield.setName("IncrementalSpinner.formattedTextField");
-		ftextfield.setValue(spinner.getValue());
-		ftextfield.addPropertyChangeListener(this);
-		ftextfield.setEditable(true);
-		ftextfield.setInheritsPopupMenu(true);
-		ftextfield.setHorizontalAlignment(JTextField.RIGHT);
+        ftextfield.setName("IncrementalSpinner.formattedTextField");
+        ftextfield.setValue(spinner.getValue());
+        ftextfield.addPropertyChangeListener(this);
+        ftextfield.setEditable(true);
+        ftextfield.setInheritsPopupMenu(true);
+        ftextfield.setHorizontalAlignment(JTextField.RIGHT);
 
-		String toolTipText = spinner.getToolTipText();
-		if (toolTipText != null) {
-			ftextfield.setToolTipText(toolTipText);
-		}
-		remove(getComponent(0));
-		add(ftextfield);
-	}
+        String toolTipText = spinner.getToolTipText();
+        if (toolTipText != null) {
+            ftextfield.setToolTipText(toolTipText);
+        }
+        remove(getComponent(0));
+        add(ftextfield);
+    }
 }

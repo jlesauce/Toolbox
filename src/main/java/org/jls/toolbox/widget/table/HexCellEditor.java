@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.table;
 
@@ -43,54 +43,53 @@ import org.jls.toolbox.widget.format.HexFormatter;
  */
 public class HexCellEditor extends DefaultCellEditor {
 
-	private static final long serialVersionUID = -8627558633251070164L;
+    private static final long serialVersionUID = -8627558633251070164L;
 
-	/**
-	 * Permet d'instancier un éditeur de cellule pour
-	 * {@link JFormattedTextField}.
-	 */
-	public HexCellEditor () {
-		super(new JFormattedTextField());
-	}
+    /**
+     * Permet d'instancier un éditeur de cellule pour {@link JFormattedTextField}.
+     */
+    public HexCellEditor() {
+        super(new JFormattedTextField());
+    }
 
-	@Override
-	public Component getTableCellEditorComponent (JTable table, Object value, boolean isSelected, int row, int column) {
-		JFormattedTextField editor =
-				(JFormattedTextField) super.getTableCellEditorComponent(table, value, isSelected, row, column);
-		if (value instanceof String) {
-			HexFormatter formatter = new HexFormatter(0L, 0xFFFFFFFFL, false, false, false);
-			editor.setFormatterFactory(new DefaultFormatterFactory(formatter));
-			editor.setHorizontalAlignment(SwingConstants.CENTER);
-			editor.setBorder(null);
-			editor.setValue(value);
-		}
-		return editor;
-	}
+    @Override
+    public Component getTableCellEditorComponent (JTable table, Object value, boolean isSelected, int row, int column) {
+        JFormattedTextField editor = (JFormattedTextField) super.getTableCellEditorComponent(table, value, isSelected,
+                row, column);
+        if (value instanceof String) {
+            HexFormatter formatter = new HexFormatter(0L, 0xFFFFFFFFL, false, false, false);
+            editor.setFormatterFactory(new DefaultFormatterFactory(formatter));
+            editor.setHorizontalAlignment(SwingConstants.CENTER);
+            editor.setBorder(null);
+            editor.setValue(value);
+        }
+        return editor;
+    }
 
-	@Override
-	public boolean stopCellEditing () {
-		try {
-			// On récupère la valeur du champ de texte avant de stopper
-			// l'édition
-			getCellEditorValue();
-			return super.stopCellEditing();
-		} catch (Exception e) {
-			return false;
-		}
-	}
+    @Override
+    public boolean stopCellEditing () {
+        try {
+            // On récupère la valeur du champ de texte avant de stopper
+            // l'édition
+            getCellEditorValue();
+            return super.stopCellEditing();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
-	@Override
-	public Object getCellEditorValue () {
-		// Récupération de la valeur du champ de texte
-		String str = (String) super.getCellEditorValue();
-		if (str == null || str.isEmpty()) {
-			return null;
-		}
-		// On parse la valeur en hexadécimal
-		if (str.matches("^[0-9a-fA-F]+$")) {
-			return Long.parseLong(str, 16);
-		} else {
-			return null;
-		}
-	}
+    @Override
+    public Object getCellEditorValue () {
+        // Récupération de la valeur du champ de texte
+        String str = (String) super.getCellEditorValue();
+        if (str == null || str.isEmpty()) {
+            return null;
+        }
+        // On parse la valeur en hexadécimal
+        if (str.matches("^[0-9a-fA-F]+$")) {
+            return Long.parseLong(str, 16);
+        } else {
+            return null;
+        }
+    }
 }

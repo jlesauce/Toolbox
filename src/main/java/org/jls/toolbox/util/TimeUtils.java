@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util;
 
@@ -37,52 +37,52 @@ import java.util.TimeZone;
  */
 public class TimeUtils {
 
-	private static final ResourceManager props = ResourceManager.getInstance();
+    private static final ResourceManager props = ResourceManager.getInstance();
 
-	private static final SimpleDateFormat fileFormat =
-			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.file"));
-	private static final SimpleDateFormat consoleFormat =
-			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.console"));
-	private static final SimpleDateFormat zuluFormat =
-			new SimpleDateFormat(props.getString("toolbox.pattern.format.date.zulu"));
+    private static final SimpleDateFormat fileFormat = new SimpleDateFormat(
+            props.getString("toolbox.pattern.format.date.file"));
+    private static final SimpleDateFormat consoleFormat = new SimpleDateFormat(
+            props.getString("toolbox.pattern.format.date.console"));
+    private static final SimpleDateFormat zuluFormat = new SimpleDateFormat(
+            props.getString("toolbox.pattern.format.date.zulu"));
 
-	static {
-		fileFormat.setTimeZone(TimeZone.getDefault());
-		consoleFormat.setTimeZone(TimeZone.getDefault());
-		zuluFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-	}
+    static {
+        fileFormat.setTimeZone(TimeZone.getDefault());
+        consoleFormat.setTimeZone(TimeZone.getDefault());
+        zuluFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+    }
 
-	/**
-	 * Classe non instanciable.
-	 */
-	private TimeUtils () {
-		throw new AssertionError();
-	}
+    /**
+     * Classe non instanciable.
+     */
+    private TimeUtils() {
+        throw new AssertionError();
+    }
 
-	/**
-	 * Renvoie la date actuelle complète.
-	 * 
-	 * @return Chaîne de texte renvoyant la date actuelle complète.
-	 */
-	public static String getFileTimestamp () {
-		return fileFormat.format(new Date());
-	}
+    /**
+     * Renvoie la date actuelle complète.
+     * 
+     * @return Chaîne de texte renvoyant la date actuelle complète.
+     */
+    public static String getFileTimestamp () {
+        return fileFormat.format(new Date());
+    }
 
-	/**
-	 * Renvoie la date UTC actuelle complète.
-	 * 
-	 * @return Chaîne de texte renvoyant la date actuelle complète.
-	 */
-	public static String getZuluTimestamp () {
-		return zuluFormat.format(new Date());
-	}
+    /**
+     * Renvoie la date UTC actuelle complète.
+     * 
+     * @return Chaîne de texte renvoyant la date actuelle complète.
+     */
+    public static String getZuluTimestamp () {
+        return zuluFormat.format(new Date());
+    }
 
-	/**
-	 * Renvoie la date au format console.
-	 * 
-	 * @return Date au format console.
-	 */
-	public static String getConsoleTimestamp () {
-		return consoleFormat.format(new Date());
-	}
+    /**
+     * Renvoie la date au format console.
+     * 
+     * @return Date au format console.
+     */
+    public static String getConsoleTimestamp () {
+        return consoleFormat.format(new Date());
+    }
 }

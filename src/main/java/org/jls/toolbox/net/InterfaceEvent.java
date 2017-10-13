@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.net;
 
@@ -33,74 +33,73 @@ package org.jls.toolbox.net;
  */
 public class InterfaceEvent {
 
-	private final Object source; // Source of the event
-	private final Interface com; // Network interface descriptor
-	private final byte[] message; // Received / Sent message
+    private final Object source; // Source of the event
+    private final Interface com; // Network interface descriptor
+    private final byte[] message; // Received / Sent message
 
-	/**
-	 * Instanciates a new event and specifies its source.
-	 * 
-	 * @param src
-	 *            Source of the event.
-	 */
-	public InterfaceEvent (final Object src) {
-		this(src, null, null);
-	}
+    /**
+     * Instanciates a new event and specifies its source.
+     * 
+     * @param src
+     *            Source of the event.
+     */
+    public InterfaceEvent(final Object src) {
+        this(src, null, null);
+    }
 
-	/**
-	 * Instanciates a new event and specifies its source and its network
-	 * descriptor.
-	 * 
-	 * @param src
-	 *            Source of the event.
-	 * @param com
-	 *            Network interface descriptor.
-	 */
-	public InterfaceEvent (final Object src, final Interface com) {
-		this(src, com, null);
-	}
+    /**
+     * Instanciates a new event and specifies its source and its network descriptor.
+     * 
+     * @param src
+     *            Source of the event.
+     * @param com
+     *            Network interface descriptor.
+     */
+    public InterfaceEvent(final Object src, final Interface com) {
+        this(src, com, null);
+    }
 
-	/**
-	 * Instanciates a new event and specifies its source, network interface
-	 * descriptor and the received or sent message.
-	 * 
-	 * @param src
-	 *            Source of the event.
-	 * @param com
-	 *            Network interface descriptor.
-	 * @param msg
-	 *            The message associated with the event.
-	 */
-	public InterfaceEvent (final Object src, final Interface com, final byte[] msg) {
-		this.source = src;
-		this.com = com;
-		this.message = msg;
-	}
+    /**
+     * Instanciates a new event and specifies its source, network interface
+     * descriptor and the received or sent message.
+     * 
+     * @param src
+     *            Source of the event.
+     * @param com
+     *            Network interface descriptor.
+     * @param msg
+     *            The message associated with the event.
+     */
+    public InterfaceEvent(final Object src, final Interface com, final byte[] msg) {
+        this.source = src;
+        this.com = com;
+        this.message = msg;
+    }
 
-	/**
-	 * Returns the source of the event.
-	 * 
-	 * @return Source of the event.
-	 */
-	public Object getSource () {
-		return this.source;
-	}
+    /**
+     * Returns the source of the event.
+     * 
+     * @return Source of the event.
+     */
+    public Object getSource () {
+        return this.source;
+    }
 
-	/**
-	 * Returns the network interface descriptor.
-	 * 
-	 * @return Network interface descriptor.
-	 */
-	public Interface getInterface () {
-		return this.com;
-	}
+    /**
+     * Returns the network interface descriptor.
+     * 
+     * @return Network interface descriptor.
+     */
+    public Interface getInterface () {
+        return this.com;
+    }
 
-	/**
-	 * Returns the message associated with this event.
-	 * 
-	 * @return The message associated with this event.
-	 */
-	public byte[] getMessage () {
-		return message;
-	}
+    /**
+     * Returns the message associated with this event.
+     * 
+     * @return The message associated with this event.
+     */
+    public byte[] getMessage () {
+        return message;
+    }
 }

@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.gui;
 
@@ -40,46 +40,46 @@ import org.apache.logging.log4j.Logger;
  */
 public class Invoker {
 
-	private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
 
-	/**
-	 * Non-instanciable class.
-	 */
-	private Invoker () {
-		super();
-	}
+    /**
+     * Non-instanciable class.
+     */
+    private Invoker() {
+        super();
+    }
 
-	/**
-	 * Invokes a method from the specified object. The called method must be
-	 * annoted using the syntax :
-	 * <p>
-	 * <code>@ActionCallback ("theCallbackID")</code>
-	 * </p>
-	 * 
-	 * @param object
-	 *            The object containing the method to call.
-	 * @param event
-	 *            The event triggered by the {@link AbstractView} object.
-	 * @param caller
-	 *            The object which triggered the event.
-	 */
-	public static void invoke (final Object object, final ActionEvent event, final AbstractView caller) {
-		for (Method m : object.getClass().getMethods()) {
-			for (Annotation a : m.getAnnotations()) {
-				if (a instanceof ActionCallback) {
-					ActionCallback callback = (ActionCallback) a;
-					if (callback.value().equals(event.getActionCommand())) {
-						try {
-							// Calls the method
-							org.jls.toolbox.gui.ActionEvent action = new org.jls.toolbox.gui.ActionEvent(event, caller);
-							m.invoke(object, action);
-						} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {
-							LOGGER.error("Action callback error : {}.{}#{}", object.getClass().getName(), m.getName(),
-									callback.value(), e1.getCause());
-						}
-					}
-				}
-			}
-		}
-	}
+    /**
+     * Invokes a method from the specified object. The called method must be annoted
+     * using the syntax :
+     * <p>
+     * <code>@ActionCallback ("theCallbackID")</code>
+     * </p>
+     * 
+     * @param object
+     *            The object containing the method to call.
+     * @param event
+     *            The event triggered by the {@link AbstractView} object.
+     * @param caller
+     *            The object which triggered the event.
+     */
+    public static void invoke (final Object object, final ActionEvent event, final AbstractView caller) {
+        for (Method m : object.getClass().getMethods()) {
+            for (Annotation a : m.getAnnotations()) {
+                if (a instanceof ActionCallback) {
+                    ActionCallback callback = (ActionCallback) a;
+                    if (callback.value().equals(event.getActionCommand())) {
+                        try {
+                            // Calls the method
+                            org.jls.toolbox.gui.ActionEvent action = new org.jls.toolbox.gui.ActionEvent(event, caller);
+                            m.invoke(object, action);
+                        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {
+                            LOGGER.error("Action callback error : {}.{}#{}", object.getClass().getName(), m.getName(),
+                                    callback.value(), e1.getCause());
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

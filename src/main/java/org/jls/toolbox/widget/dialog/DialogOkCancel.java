@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.dialog;
 
@@ -48,103 +48,103 @@ import net.miginfocom.swing.MigLayout;
  */
 public class DialogOkCancel extends Dialog implements ActionListener {
 
-	private static final long serialVersionUID = 2354616214737733368L;
+    private static final long serialVersionUID = 2354616214737733368L;
 
-	public static final int OK_OPTION = 1;
-	public static final int CANCEL_OPTION = 0;
+    public static final int OK_OPTION = 1;
+    public static final int CANCEL_OPTION = 0;
 
-	private int userOption;
+    private int userOption;
 
-	private JButton btnOk;
-	private JButton btnCancel;
+    private JButton btnOk;
+    private JButton btnCancel;
 
-	/**
-	 * Permet d'instancier une fenêtre de dialogue.
-	 * 
-	 * @param parent
-	 *            Parent de la fenêtre.
-	 * @param title
-	 *            Titre de la fenêtre de dialogue.
-	 * @param content
-	 *            Composant à ajouter à la fenêtre de dialogue.
-	 */
-	public DialogOkCancel (final JFrame parent, final String title, final JComponent content) {
-		super(parent, title, content);
-		this.userOption = DialogOkCancel.CANCEL_OPTION;
-	}
+    /**
+     * Permet d'instancier une fenêtre de dialogue.
+     * 
+     * @param parent
+     *            Parent de la fenêtre.
+     * @param title
+     *            Titre de la fenêtre de dialogue.
+     * @param content
+     *            Composant à ajouter à la fenêtre de dialogue.
+     */
+    public DialogOkCancel(final JFrame parent, final String title, final JComponent content) {
+        super(parent, title, content);
+        this.userOption = DialogOkCancel.CANCEL_OPTION;
+    }
 
-	@Override
-	public int showDialog () {
-		createComponents();
-		setStyle();
-		addListeners();
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setResizable(false);
-		pack();
-		setLocationRelativeTo(getParentFrame());
-		setVisible(true);
-		return this.userOption;
-	}
+    @Override
+    public int showDialog () {
+        createComponents();
+        setStyle();
+        addListeners();
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setLocationRelativeTo(getParentFrame());
+        setVisible(true);
+        return this.userOption;
+    }
 
-	@Override
-	protected void onValidAction () {
-		this.userOption = DialogOkCancel.OK_OPTION;
-		dispose();
-	}
+    @Override
+    protected void onValidAction () {
+        this.userOption = DialogOkCancel.OK_OPTION;
+        dispose();
+    }
 
-	@Override
-	protected void onCancelAction () {
-		this.userOption = DialogOkCancel.CANCEL_OPTION;
-		dispose();
-	}
+    @Override
+    protected void onCancelAction () {
+        this.userOption = DialogOkCancel.CANCEL_OPTION;
+        dispose();
+    }
 
-	@Override
-	protected void createComponents () {
-		ResourceManager p = ResourceManager.getInstance();
-		this.btnOk = new JButton(p.getString("toolbox.label.ok"));
-		this.btnCancel = new JButton(p.getString("toolbox.label.cancel"));
-	}
+    @Override
+    protected void createComponents () {
+        ResourceManager p = ResourceManager.getInstance();
+        this.btnOk = new JButton(p.getString("toolbox.label.ok"));
+        this.btnCancel = new JButton(p.getString("toolbox.label.cancel"));
+    }
 
-	@Override
-	protected void setStyle () {
-		setLayout(new MigLayout());
-		add(getContent(), "grow, wrap");
-		add(this.btnOk, "split, span, center");
-		add(this.btnCancel, "");
-	}
+    @Override
+    protected void setStyle () {
+        setLayout(new MigLayout());
+        add(getContent(), "grow, wrap");
+        add(this.btnOk, "split, span, center");
+        add(this.btnCancel, "");
+    }
 
-	@Override
-	protected void addListeners () {
-		this.btnOk.addActionListener(this);
-		this.btnCancel.addActionListener(this);
-	}
+    @Override
+    protected void addListeners () {
+        this.btnOk.addActionListener(this);
+        this.btnCancel.addActionListener(this);
+    }
 
-	@Override
-	public void actionPerformed (ActionEvent e) {
-		/*
-		 * JButton
-		 */
-		if (e.getSource() instanceof JButton) {
-			JButton btn = (JButton) e.getSource();
+    @Override
+    public void actionPerformed (ActionEvent e) {
+        /*
+         * JButton
+         */
+        if (e.getSource() instanceof JButton) {
+            JButton btn = (JButton) e.getSource();
 
-			// OK
-			if (this.btnOk.equals(btn)) {
-				onValidAction();
-			}
-			// Cancel
-			if (this.btnCancel.equals(btn)) {
-				onCancelAction();
-			}
-		}
-	}
+            // OK
+            if (this.btnOk.equals(btn)) {
+                onValidAction();
+            }
+            // Cancel
+            if (this.btnCancel.equals(btn)) {
+                onCancelAction();
+            }
+        }
+    }
 
-	/**
-	 * Renvoie l'option sélectionnée par l'utilisateur.
-	 * 
-	 * @return Option sélectionnée par l'utilisateur ({@link #OK_OPTION} ou
-	 *         {@link #CANCEL_OPTION}).
-	 */
-	public int getUserOption () {
-		return this.userOption;
-	}
+    /**
+     * Renvoie l'option sélectionnée par l'utilisateur.
+     * 
+     * @return Option sélectionnée par l'utilisateur ({@link #OK_OPTION} ou
+     *         {@link #CANCEL_OPTION}).
+     */
+    public int getUserOption () {
+        return this.userOption;
+    }
 }

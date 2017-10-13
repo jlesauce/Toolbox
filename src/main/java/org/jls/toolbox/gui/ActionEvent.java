@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.gui;
 
@@ -35,129 +35,126 @@ package org.jls.toolbox.gui;
  */
 public class ActionEvent extends java.awt.event.ActionEvent {
 
-	private static final long serialVersionUID = 9148498099084955285L;
+    private static final long serialVersionUID = 9148498099084955285L;
 
-	private final AbstractView view;
+    private final AbstractView view;
 
-	/**
-	 * Constructs an <code>ActionEvent</code> object with modifier keys.
-	 * <p>
-	 * This method throws an <code>IllegalArgumentException</code> if
-	 * <code>source</code> is <code>null</code>. A <code>null</code>
-	 * <code>command</code> string is legal, but not recommended.
-	 * 
-	 * @param source
-	 *            The object that originated the event
-	 * @param id
-	 *            An integer that identifies the event. For information on
-	 *            allowable values, see the class description for
-	 *            {@link ActionEvent}
-	 * @param command
-	 *            A string that may specify a command (possibly one of several)
-	 *            associated with the event
-	 * @param modifiers
-	 *            The modifier keys down during event (shift, ctrl, alt, meta).
-	 *            Passing negative parameter is not recommended. Zero value
-	 *            means that no modifiers were passed
-	 * @throws IllegalArgumentException
-	 *             if <code>source</code> is null
-	 * @see #getSource()
-	 * @see #getID()
-	 * @see #getActionCommand()
-	 * @see #getModifiers()
-	 */
-	public ActionEvent (Object source, int id, String command, int modifiers) {
-		super(source, id, command, modifiers);
-		this.view = null;
-	}
+    /**
+     * Constructs an <code>ActionEvent</code> object with modifier keys.
+     * <p>
+     * This method throws an <code>IllegalArgumentException</code> if
+     * <code>source</code> is <code>null</code>. A <code>null</code>
+     * <code>command</code> string is legal, but not recommended.
+     * 
+     * @param source
+     *            The object that originated the event
+     * @param id
+     *            An integer that identifies the event. For information on allowable
+     *            values, see the class description for {@link ActionEvent}
+     * @param command
+     *            A string that may specify a command (possibly one of several)
+     *            associated with the event
+     * @param modifiers
+     *            The modifier keys down during event (shift, ctrl, alt, meta).
+     *            Passing negative parameter is not recommended. Zero value means
+     *            that no modifiers were passed
+     * @throws IllegalArgumentException
+     *             if <code>source</code> is null
+     * @see #getSource()
+     * @see #getID()
+     * @see #getActionCommand()
+     * @see #getModifiers()
+     */
+    public ActionEvent(Object source, int id, String command, int modifiers) {
+        super(source, id, command, modifiers);
+        this.view = null;
+    }
 
-	/**
-	 * Constructs an <code>ActionEvent</code> object with the specified modifier
-	 * keys and timestamp.
-	 * <p>
-	 * This method throws an <code>IllegalArgumentException</code> if
-	 * <code>source</code> is <code>null</code>. A <code>null</code>
-	 * <code>command</code> string is legal, but not recommended.
-	 * 
-	 * @param source
-	 *            The object that originated the event
-	 * @param id
-	 *            An integer that identifies the event. For information on
-	 *            allowable values, see the class description for
-	 *            {@link ActionEvent}
-	 * @param command
-	 *            A string that may specify a command (possibly one of several)
-	 *            associated with the event
-	 * @param modifiers
-	 *            The modifier keys down during event (shift, ctrl, alt, meta).
-	 *            Passing negative parameter is not recommended. Zero value
-	 *            means that no modifiers were passed
-	 * @param when
-	 *            A long that gives the time the event occurred. Passing
-	 *            negative or zero value is not recommended
-	 * @throws IllegalArgumentException
-	 *             if <code>source</code> is null
-	 * @see #getSource()
-	 * @see #getID()
-	 * @see #getActionCommand()
-	 * @see #getModifiers()
-	 * @see #getWhen()
-	 * 
-	 * @since 1.4
-	 */
-	public ActionEvent (Object source, int id, String command, long when, int modifiers) {
-		super(source, id, command, when, modifiers);
-		this.view = null;
-	}
+    /**
+     * Constructs an <code>ActionEvent</code> object with the specified modifier
+     * keys and timestamp.
+     * <p>
+     * This method throws an <code>IllegalArgumentException</code> if
+     * <code>source</code> is <code>null</code>. A <code>null</code>
+     * <code>command</code> string is legal, but not recommended.
+     * 
+     * @param source
+     *            The object that originated the event
+     * @param id
+     *            An integer that identifies the event. For information on allowable
+     *            values, see the class description for {@link ActionEvent}
+     * @param command
+     *            A string that may specify a command (possibly one of several)
+     *            associated with the event
+     * @param modifiers
+     *            The modifier keys down during event (shift, ctrl, alt, meta).
+     *            Passing negative parameter is not recommended. Zero value means
+     *            that no modifiers were passed
+     * @param when
+     *            A long that gives the time the event occurred. Passing negative or
+     *            zero value is not recommended
+     * @throws IllegalArgumentException
+     *             if <code>source</code> is null
+     * @see #getSource()
+     * @see #getID()
+     * @see #getActionCommand()
+     * @see #getModifiers()
+     * @see #getWhen()
+     * 
+     * @since 1.4
+     */
+    public ActionEvent(Object source, int id, String command, long when, int modifiers) {
+        super(source, id, command, when, modifiers);
+        this.view = null;
+    }
 
-	/**
-	 * Constructs an <code>ActionEvent</code> object.
-	 * <p>
-	 * This method throws an <code>IllegalArgumentException</code> if
-	 * <code>source</code> is <code>null</code>. A <code>null</code>
-	 * <code>command</code> string is legal, but not recommended.
-	 * 
-	 * @param source
-	 *            The object that originated the event
-	 * @param id
-	 *            An integer that identifies the event. For information on
-	 *            allowable values, see the class description for
-	 *            {@link ActionEvent}
-	 * @param command
-	 *            A string that may specify a command (possibly one of several)
-	 *            associated with the event
-	 * @throws IllegalArgumentException
-	 *             if <code>source</code> is null
-	 * @see #getSource()
-	 * @see #getID()
-	 * @see #getActionCommand()
-	 */
-	public ActionEvent (Object source, int id, String command) {
-		super(source, id, command);
-		this.view = null;
-	}
+    /**
+     * Constructs an <code>ActionEvent</code> object.
+     * <p>
+     * This method throws an <code>IllegalArgumentException</code> if
+     * <code>source</code> is <code>null</code>. A <code>null</code>
+     * <code>command</code> string is legal, but not recommended.
+     * 
+     * @param source
+     *            The object that originated the event
+     * @param id
+     *            An integer that identifies the event. For information on allowable
+     *            values, see the class description for {@link ActionEvent}
+     * @param command
+     *            A string that may specify a command (possibly one of several)
+     *            associated with the event
+     * @throws IllegalArgumentException
+     *             if <code>source</code> is null
+     * @see #getSource()
+     * @see #getID()
+     * @see #getActionCommand()
+     */
+    public ActionEvent(Object source, int id, String command) {
+        super(source, id, command);
+        this.view = null;
+    }
 
-	/**
-	 * Instanciates an <code>ActionEvent</code> object from an
-	 * {@link java.awt.event.ActionEvent} and specifies the graphical interface
-	 * that triggered the event.
-	 * 
-	 * @param e
-	 *            The event triggered by the component.
-	 * @param view
-	 *            The graphical interface.
-	 */
-	public ActionEvent (final java.awt.event.ActionEvent e, final AbstractView view) {
-		super(e.getSource(), e.getID(), e.getActionCommand(), e.getWhen(), e.getModifiers());
-		this.view = view;
-	}
+    /**
+     * Instanciates an <code>ActionEvent</code> object from an
+     * {@link java.awt.event.ActionEvent} and specifies the graphical interface that
+     * triggered the event.
+     * 
+     * @param e
+     *            The event triggered by the component.
+     * @param view
+     *            The graphical interface.
+     */
+    public ActionEvent(final java.awt.event.ActionEvent e, final AbstractView view) {
+        super(e.getSource(), e.getID(), e.getActionCommand(), e.getWhen(), e.getModifiers());
+        this.view = view;
+    }
 
-	/**
-	 * Returns the graphical interface that triggered the event.
-	 * 
-	 * @return Graphical interface that triggered the event.
-	 */
-	public AbstractView getView () {
-		return this.view;
-	}
+    /**
+     * Returns the graphical interface that triggered the event.
+     * 
+     * @return Graphical interface that triggered the event.
+     */
+    public AbstractView getView () {
+        return this.view;
+    }
 }

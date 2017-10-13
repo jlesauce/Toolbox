@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -40,29 +40,29 @@ import javax.swing.SpinnerNumberModel;
  */
 public class DecimalSpinner<T> extends JSpinner {
 
-	private static final long serialVersionUID = -827579762711543293L;
+    private static final long serialVersionUID = -827579762711543293L;
 
-	/**
-	 * Permet d'instancier un spinner.
-	 * 
-	 * @param value
-	 *            Valeur initiale du spinner.
-	 * @param min
-	 *            Valeur minimale.
-	 * @param max
-	 *            Valeur maximale.
-	 * @param step
-	 *            Pas entre deux valeurs consécutives.
-	 */
-	public DecimalSpinner (Number value, Comparable<T> min, Comparable<T> max, Number step) {
-		super(new SpinnerNumberModel(value, min, max, step));
-		setLocale(Locale.ENGLISH);
-		NumberEditor editor = new NumberEditor(this);
-		editor.setLocale(Locale.ENGLISH);
-		editor.getFormat().setGroupingUsed(false);
-		editor.getFormat().applyLocalizedPattern("#.###");
-		editor.getFormat().applyPattern("#.###");
-		editor.getFormat().setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.ENGLISH));
-		setEditor(editor);
-	}
+    /**
+     * Permet d'instancier un spinner.
+     * 
+     * @param value
+     *            Valeur initiale du spinner.
+     * @param min
+     *            Valeur minimale.
+     * @param max
+     *            Valeur maximale.
+     * @param step
+     *            Pas entre deux valeurs consécutives.
+     */
+    public DecimalSpinner(Number value, Comparable<T> min, Comparable<T> max, Number step) {
+        super(new SpinnerNumberModel(value, min, max, step));
+        setLocale(Locale.ENGLISH);
+        NumberEditor editor = new NumberEditor(this);
+        editor.setLocale(Locale.ENGLISH);
+        editor.getFormat().setGroupingUsed(false);
+        editor.getFormat().applyLocalizedPattern("#.###");
+        editor.getFormat().applyPattern("#.###");
+        editor.getFormat().setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.ENGLISH));
+        setEditor(editor);
+    }
 }

@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util.xml;
 
@@ -43,79 +43,79 @@ import org.bounce.text.xml.XMLStyleConstants;
  */
 public class XMLViewer extends JScrollPane {
 
-	private static final long serialVersionUID = -7903654755681100534L;
+    private static final long serialVersionUID = -7903654755681100534L;
 
-	private JEditorPane editor;
-	private XMLEditorKit editorKit;
-	private String xmlStream;
+    private JEditorPane editor;
+    private XMLEditorKit editorKit;
+    private String xmlStream;
 
-	/**
-	 * Permet d'instancier un éditeur XML.
-	 * 
-	 * @param xmlStream
-	 *            Chaîne de texte au format XML.
-	 */
-	public XMLViewer (String xmlStream) {
-		super();
-		this.xmlStream = xmlStream;
-		this.editorKit = new XMLEditorKit();
-		this.editorKit.setAutoIndentation(true);
-		this.editorKit.setTagCompletion(true);
-		createView();
-		setStyle();
-	}
+    /**
+     * Permet d'instancier un éditeur XML.
+     * 
+     * @param xmlStream
+     *            Chaîne de texte au format XML.
+     */
+    public XMLViewer(String xmlStream) {
+        super();
+        this.xmlStream = xmlStream;
+        this.editorKit = new XMLEditorKit();
+        this.editorKit.setAutoIndentation(true);
+        this.editorKit.setTagCompletion(true);
+        createView();
+        setStyle();
+    }
 
-	/**
-	 * Permet de créer les différents éléments qui composent la vue.
-	 */
-	private void createView () {
-		this.editor = new JEditorPane();
-		this.editor.setEditorKit(this.editorKit);
-		this.editor.setText(this.xmlStream);
-		this.editor.setEditable(false);
-	}
+    /**
+     * Permet de créer les différents éléments qui composent la vue.
+     */
+    private void createView () {
+        this.editor = new JEditorPane();
+        this.editor.setEditorKit(this.editorKit);
+        this.editor.setText(this.xmlStream);
+        this.editor.setEditable(false);
+    }
 
-	/**
-	 * Permet, une fois les composants créés, de placer correctement les
-	 * éléments qui composent la vue.
-	 */
-	private void setStyle () {
-		setViewportView(this.editor);
-		setAutoscrolls(false);
+    /**
+     * Permet, une fois les composants créés, de placer correctement les éléments
+     * qui composent la vue.
+     */
+    private void setStyle () {
+        setViewportView(this.editor);
+        setAutoscrolls(false);
 
-		DefaultCaret caret = (DefaultCaret) this.editor.getCaret();
-		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+        DefaultCaret caret = (DefaultCaret) this.editor.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
-		this.editor.setFont(new Font("Courrier", Font.PLAIN, 13));
-		this.editor.getDocument().putProperty(PlainDocument.tabSizeAttribute, 2);
-		this.editor.getDocument().putProperty(XMLEditorKit.ERROR_HIGHLIGHTING_ATTRIBUTE, true);
-		this.editorKit.setAutoIndentation(true);
-		this.editorKit.setTagCompletion(true);
+        this.editor.setFont(new Font("Courrier", Font.PLAIN, 13));
+        this.editor.getDocument().putProperty(PlainDocument.tabSizeAttribute, 2);
+        this.editor.getDocument().putProperty(XMLEditorKit.ERROR_HIGHLIGHTING_ATTRIBUTE, true);
+        this.editorKit.setAutoIndentation(true);
+        this.editorKit.setTagCompletion(true);
 
-		this.editorKit.setStyle(XMLStyleConstants.ATTRIBUTE_NAME, Color.RED, Font.PLAIN);
-		this.editorKit.setStyle(XMLStyleConstants.ATTRIBUTE_VALUE, Color.BLUE, Font.PLAIN);
-		this.editorKit.setStyle(XMLStyleConstants.SPECIAL, Color.BLACK, Font.PLAIN);
-		this.editorKit.setStyle(XMLStyleConstants.ENTITY, Color.BLACK, Font.PLAIN);
-	}
+        this.editorKit.setStyle(XMLStyleConstants.ATTRIBUTE_NAME, Color.RED, Font.PLAIN);
+        this.editorKit.setStyle(XMLStyleConstants.ATTRIBUTE_VALUE, Color.BLUE, Font.PLAIN);
+        this.editorKit.setStyle(XMLStyleConstants.SPECIAL, Color.BLACK, Font.PLAIN);
+        this.editorKit.setStyle(XMLStyleConstants.ENTITY, Color.BLACK, Font.PLAIN);
+    }
 
-	/**
-	 * Permet de mettre à jour la chaîne de texte XML affichée par l'éditeur.
-	 * 
-	 * @param xmlString
-	 *            Chaîne de texte au format XML.
-	 */
-	public void setText (String xmlString) {
-		this.editor.setText(xmlString);
-	}
+    /**
+     * Permet de mettre à jour la chaîne de texte XML affichée par l'éditeur.
+     * 
+     * @param xmlString
+     *            Chaîne de texte au format XML.
+     */
+    public void setText (String xmlString) {
+        this.editor.setText(xmlString);
+    }
 
-	/**
-	 * Permet de spécifier si la zone d'écriture est éditable ou non.
-	 * 
-	 * @param isEditable
-	 *            <code>true</code> pour que la zone soit éditable,
-	 *            <code>false</code> sinon.
-	 */
-	public void setEditable (boolean isEditable) {
-		this.editor.setEditable(isEditable);
-	}
+    /**
+     * Permet de spécifier si la zone d'écriture est éditable ou non.
+     * 
+     * @param isEditable
+     *            <code>true</code> pour que la zone soit éditable,
+     *            <code>false</code> sinon.
+     */
+    public void setEditable (boolean isEditable) {
+        this.editor.setEditable(isEditable);
+    }
 }

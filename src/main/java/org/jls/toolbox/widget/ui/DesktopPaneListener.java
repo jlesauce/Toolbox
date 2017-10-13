@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.ui;
 
@@ -32,11 +32,11 @@ package org.jls.toolbox.widget.ui;
  */
 public interface DesktopPaneListener {
 
-	/**
-	 * Cette méthode est appelée lorsqu'une fenêtre interne est fermée.
-	 * 
-	 * @param event
-	 *            Evènement associé.
-	 */
-	public void frameClosed (final DesktopPaneEvent event);
+    /**
+     * Cette méthode est appelée lorsqu'une fenêtre interne est fermée.
+     * 
+     * @param event
+     *            Evènement associé.
+     */
+    public void frameClosed (final DesktopPaneEvent event);
 }

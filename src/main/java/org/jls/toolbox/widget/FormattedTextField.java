@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget;
 
@@ -38,33 +38,33 @@ import org.jls.toolbox.widget.format.Format;
  */
 public class FormattedTextField extends JFormattedTextField {
 
-	private static final long serialVersionUID = 2547767831102601192L;
+    private static final long serialVersionUID = 2547767831102601192L;
 
-	/**
-	 * Permet d'instancier un champ de texte au format par défaut.
-	 */
-	public FormattedTextField () {
-		super();
-	}
+    /**
+     * Permet d'instancier un champ de texte au format par défaut.
+     */
+    public FormattedTextField() {
+        super();
+    }
 
-	/**
-	 * Permet d'instancier un champ de texte au format par défaut.
-	 * 
-	 * @param groupingSeparator
-	 *            Permet de spécifier le caractère de séparation des milliers.
-	 */
-	public FormattedTextField (final char groupingSeparator) {
-		super(Format.getDecimalFormat(groupingSeparator, '.'));
-	}
+    /**
+     * Permet d'instancier un champ de texte au format par défaut.
+     * 
+     * @param groupingSeparator
+     *            Permet de spécifier le caractère de séparation des milliers.
+     */
+    public FormattedTextField(final char groupingSeparator) {
+        super(Format.getDecimalFormat(groupingSeparator, '.'));
+    }
 
-	/**
-	 * Permet d'instancier un champ de texte en spécifiant le format utilisé.
-	 * 
-	 * @param format
-	 *            {@link NumberFormat} permettant d'afficher la valeur du champ
-	 *            de texte.
-	 */
-	public FormattedTextField (final NumberFormat format) {
-		super(format);
-	}
+    /**
+     * Permet d'instancier un champ de texte en spécifiant le format utilisé.
+     * 
+     * @param format
+     *            {@link NumberFormat} permettant d'afficher la valeur du champ de
+     *            texte.
+     */
+    public FormattedTextField(final NumberFormat format) {
+        super(format);
+    }
 }

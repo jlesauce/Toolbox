@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util.image;
 
@@ -37,38 +37,38 @@ import java.awt.image.BufferedImage;
  */
 public class ImageScaling {
 
-	/**
-	 * Permet de redimensionner une image selon un facteur précisé en argument.
-	 * 
-	 * @param source
-	 *            Image à redimensionner.
-	 * @param factor
-	 *            Facteur de redimensionnement (doit être positif).
-	 * @return Image redimensionnée.
-	 */
-	public static Image scaleImage (final Image source, final double factor) {
-		int width = (int) (source.getWidth(null) * factor);
-		int height = (int) (source.getHeight(null) * factor);
-		return scaleImage(source, width, height);
-	}
+    /**
+     * Permet de redimensionner une image selon un facteur précisé en argument.
+     * 
+     * @param source
+     *            Image à redimensionner.
+     * @param factor
+     *            Facteur de redimensionnement (doit être positif).
+     * @return Image redimensionnée.
+     */
+    public static Image scaleImage (final Image source, final double factor) {
+        int width = (int) (source.getWidth(null) * factor);
+        int height = (int) (source.getHeight(null) * factor);
+        return scaleImage(source, width, height);
+    }
 
-	/**
-	 * Permet de redimensionner une image aux dimensions précisées.
-	 * 
-	 * @param source
-	 *            Image d'origine.
-	 * @param width
-	 *            Largeur de l'image de sortie.
-	 * @param height
-	 *            Hauteur de l'image de sortie.
-	 * @return Image redimensionnée.
-	 */
-	public static Image scaleImage (Image source, int width, int height) {
-		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g = (Graphics2D) img.getGraphics();
-		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		g.drawImage(source, 0, 0, width, height, null);
-		g.dispose();
-		return img;
-	}
+    /**
+     * Permet de redimensionner une image aux dimensions précisées.
+     * 
+     * @param source
+     *            Image d'origine.
+     * @param width
+     *            Largeur de l'image de sortie.
+     * @param height
+     *            Hauteur de l'image de sortie.
+     * @return Image redimensionnée.
+     */
+    public static Image scaleImage (Image source, int width, int height) {
+        BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = (Graphics2D) img.getGraphics();
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.drawImage(source, 0, 0, width, height, null);
+        g.dispose();
+        return img;
+    }
 }

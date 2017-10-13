@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.net;
 
@@ -34,31 +34,29 @@ package org.jls.toolbox.net;
  */
 public interface InterfaceListener {
 
-	/**
-	 * This method is called when a message is received from the network
-	 * interface.
-	 * 
-	 * @param event
-	 *            {@link InterfaceEvent} associated with this event.
-	 */
-	public void onReceive (final InterfaceEvent event);
+    /**
+     * This method is called when a message is received from the network interface.
+     * 
+     * @param event
+     *            {@link InterfaceEvent} associated with this event.
+     */
+    public void onReceive (final InterfaceEvent event);
 
-	/**
-	 * This method is called when a timeout occurred on the network interface.
-	 * 
-	 * @param event
-	 *            {@link InterfaceEvent} associated with this event.
-	 */
-	public void onTimeout (final InterfaceEvent event);
+    /**
+     * This method is called when a timeout occurred on the network interface.
+     * 
+     * @param event
+     *            {@link InterfaceEvent} associated with this event.
+     */
+    public void onTimeout (final InterfaceEvent event);
 
-	/**
-	 * This method is called when an exception occurred on the network
-	 * interface.
-	 * 
-	 * @param event
-	 *            {@link InterfaceEvent} associated with this event.
-	 * @param t
-	 *            The thrown exception.
-	 */
-	public void onException (final InterfaceEvent event, final Throwable t);
+    /**
+     * This method is called when an exception occurred on the network interface.
+     * 
+     * @param event
+     *            {@link InterfaceEvent} associated with this event.
+     * @param t
+     *            The thrown exception.
+     */
+    public void onException (final InterfaceEvent event, final Throwable t);
 }

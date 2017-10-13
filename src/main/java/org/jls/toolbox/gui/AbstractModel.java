@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.gui;
 
@@ -34,28 +34,28 @@ import java.util.Observable;
  */
 public abstract class AbstractModel extends Observable {
 
-	/**
-	 * Instanciates a new data model.
-	 */
-	public AbstractModel () {
-		super();
-	}
+    /**
+     * Instanciates a new data model.
+     */
+    public AbstractModel() {
+        super();
+    }
 
-	/**
-	 * Notifies the observers of this model that a modication has been made.
-	 * 
-	 * @param arg
-	 *            It's possible to specify an object to the observer.
-	 */
-	public final void notifyChanged (Object... arg) {
-		setChanged();
-		if (arg.length == 0) {
-			notifyObservers();
-		} else if (arg.length == 1 && arg[0] != null) {
-			notifyObservers(arg[0]);
-		} else {
-			throw new IllegalArgumentException("Only one argument allowed");
-		}
-		clearChanged();
-	}
+    /**
+     * Notifies the observers of this model that a modication has been made.
+     * 
+     * @param arg
+     *            It's possible to specify an object to the observer.
+     */
+    public final void notifyChanged (Object... arg) {
+        setChanged();
+        if (arg.length == 0) {
+            notifyObservers();
+        } else if (arg.length == 1 && arg[0] != null) {
+            notifyObservers(arg[0]);
+        } else {
+            throw new IllegalArgumentException("Only one argument allowed");
+        }
+        clearChanged();
+    }
 }

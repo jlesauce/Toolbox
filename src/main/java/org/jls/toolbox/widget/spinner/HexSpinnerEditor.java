@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -40,33 +40,33 @@ import org.jls.toolbox.widget.format.HexFormatter;
  */
 public class HexSpinnerEditor extends DefaultEditor {
 
-	private static final long serialVersionUID = -802407674000716992L;
+    private static final long serialVersionUID = -802407674000716992L;
 
-	/**
-	 * Permet d'instancier un éditeur hexadécimal et de lui associer un
-	 * {@link HexSpinner}.
-	 * 
-	 * @param spinner
-	 *            Spinner hexadécimal.
-	 */
-	public HexSpinnerEditor (HexSpinner spinner) {
-		super(spinner);
-		HexSpinnerModel model = spinner.getModel();
-		HexFormatter formatter = new HexFormatter(model.getMinimum(), model.getMaximum(), false, false, false);
-		JFormattedTextField ftextfield = new JFormattedTextField(formatter);
+    /**
+     * Permet d'instancier un éditeur hexadécimal et de lui associer un
+     * {@link HexSpinner}.
+     * 
+     * @param spinner
+     *            Spinner hexadécimal.
+     */
+    public HexSpinnerEditor(HexSpinner spinner) {
+        super(spinner);
+        HexSpinnerModel model = spinner.getModel();
+        HexFormatter formatter = new HexFormatter(model.getMinimum(), model.getMaximum(), false, false, false);
+        JFormattedTextField ftextfield = new JFormattedTextField(formatter);
 
-		ftextfield.setName("HexSpinner.formattedTextField");
-		ftextfield.setValue(spinner.getValue());
-		ftextfield.addPropertyChangeListener(this);
-		ftextfield.setEditable(true);
-		ftextfield.setInheritsPopupMenu(true);
-		ftextfield.setHorizontalAlignment(JTextField.RIGHT);
+        ftextfield.setName("HexSpinner.formattedTextField");
+        ftextfield.setValue(spinner.getValue());
+        ftextfield.addPropertyChangeListener(this);
+        ftextfield.setEditable(true);
+        ftextfield.setInheritsPopupMenu(true);
+        ftextfield.setHorizontalAlignment(JTextField.RIGHT);
 
-		String toolTipText = spinner.getToolTipText();
-		if (toolTipText != null) {
-			ftextfield.setToolTipText(toolTipText);
-		}
-		remove(getComponent(0));
-		add(ftextfield);
-	}
+        String toolTipText = spinner.getToolTipText();
+        if (toolTipText != null) {
+            ftextfield.setToolTipText(toolTipText);
+        }
+        remove(getComponent(0));
+        add(ftextfield);
+    }
 }

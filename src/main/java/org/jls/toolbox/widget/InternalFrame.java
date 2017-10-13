@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget;
 
@@ -37,85 +37,85 @@ import org.jls.toolbox.widget.ui.DesktopPane;
  */
 public class InternalFrame extends JInternalFrame {
 
-	private static final long serialVersionUID = -3025021128703149423L;
+    private static final long serialVersionUID = -3025021128703149423L;
 
-	private final String id;
+    private final String id;
 
-	/**
-	 * Permet d'instancier une fenêtre par défaut.
-	 * 
-	 * @param id
-	 *            Identifiant unique de la fenêtre permettant sa gestion par le
-	 *            panneau {@link DesktopPane}.
-	 */
-	public InternalFrame (final String id) {
-		this(null, id);
-	}
+    /**
+     * Permet d'instancier une fenêtre par défaut.
+     * 
+     * @param id
+     *            Identifiant unique de la fenêtre permettant sa gestion par le
+     *            panneau {@link DesktopPane}.
+     */
+    public InternalFrame(final String id) {
+        this(null, id);
+    }
 
-	/**
-	 * Permet d'instancier une fenêtre et de spécifier son titre.
-	 * 
-	 * @param id
-	 *            Identifiant unique de la fenêtre permettant sa gestion par le
-	 *            panneau {@link DesktopPane}.
-	 * @param title
-	 *            Titre de la fenêtre.
-	 */
-	public InternalFrame (final String id, final String title) {
-		this(id, title, true);
-	}
+    /**
+     * Permet d'instancier une fenêtre et de spécifier son titre.
+     * 
+     * @param id
+     *            Identifiant unique de la fenêtre permettant sa gestion par le
+     *            panneau {@link DesktopPane}.
+     * @param title
+     *            Titre de la fenêtre.
+     */
+    public InternalFrame(final String id, final String title) {
+        this(id, title, true);
+    }
 
-	/**
-	 * Permet d'instancier une fenêtre, de spécifier son titre et si la fenêtre
-	 * est redimensionnable ou non.
-	 * 
-	 * @param id
-	 *            Identifiant unique de la fenêtre permettant sa gestion par le
-	 *            panneau {@link DesktopPane}.
-	 * @param title
-	 *            Titre de la fenêtre.
-	 * @param isResizable
-	 *            <code>true</code> pour que la fenêtre soit redimensionnable,
-	 *            <code>false</code> sinon.
-	 */
-	public InternalFrame (final String id, final String title, boolean isResizable) {
-		this(id, title, isResizable, true, true, true);
-	}
+    /**
+     * Permet d'instancier une fenêtre, de spécifier son titre et si la fenêtre est
+     * redimensionnable ou non.
+     * 
+     * @param id
+     *            Identifiant unique de la fenêtre permettant sa gestion par le
+     *            panneau {@link DesktopPane}.
+     * @param title
+     *            Titre de la fenêtre.
+     * @param isResizable
+     *            <code>true</code> pour que la fenêtre soit redimensionnable,
+     *            <code>false</code> sinon.
+     */
+    public InternalFrame(final String id, final String title, boolean isResizable) {
+        this(id, title, isResizable, true, true, true);
+    }
 
-	/**
-	 * Permet d'instancier une fenêtre et de spécifier ses paramètres.
-	 * 
-	 * @param id
-	 *            Identifiant unique de la fenêtre permettant sa gestion par le
-	 *            {@link DesktopPane}.
-	 * @param title
-	 *            Titre de la fenêtre.
-	 * @param resizable
-	 *            <code>true</code> pour que la fenêtre soit redimensionnable,
-	 *            <code>false</code> sinon.
-	 * @param closable
-	 *            <code>true</code> pour que la fenêtre puisse être fermée,
-	 *            <code>false</code> sinon.
-	 * @param maximizable
-	 *            <code>true</code> pour que la fenêtre puisse être agrandie,
-	 *            <code>false</code> sinon.
-	 * @param iconifiable
-	 *            <code>true</code> pour que la fenêtre puisse être iconifiée,
-	 *            <code>false</code> sinon.
-	 */
-	public InternalFrame (final String id, final String title, boolean resizable, boolean closable, boolean maximizable,
-			boolean iconifiable) {
-		super(title, resizable, closable, maximizable, iconifiable);
-		this.id = id;
-		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-	}
+    /**
+     * Permet d'instancier une fenêtre et de spécifier ses paramètres.
+     * 
+     * @param id
+     *            Identifiant unique de la fenêtre permettant sa gestion par le
+     *            {@link DesktopPane}.
+     * @param title
+     *            Titre de la fenêtre.
+     * @param resizable
+     *            <code>true</code> pour que la fenêtre soit redimensionnable,
+     *            <code>false</code> sinon.
+     * @param closable
+     *            <code>true</code> pour que la fenêtre puisse être fermée,
+     *            <code>false</code> sinon.
+     * @param maximizable
+     *            <code>true</code> pour que la fenêtre puisse être agrandie,
+     *            <code>false</code> sinon.
+     * @param iconifiable
+     *            <code>true</code> pour que la fenêtre puisse être iconifiée,
+     *            <code>false</code> sinon.
+     */
+    public InternalFrame(final String id, final String title, boolean resizable, boolean closable, boolean maximizable,
+            boolean iconifiable) {
+        super(title, resizable, closable, maximizable, iconifiable);
+        this.id = id;
+        setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+    }
 
-	/**
-	 * Renvoie l'identifiant unique de la fenêtre.
-	 * 
-	 * @return Identifiant unique de la fenêtre.
-	 */
-	public String getId () {
-		return id;
-	}
+    /**
+     * Renvoie l'identifiant unique de la fenêtre.
+     * 
+     * @return Identifiant unique de la fenêtre.
+     */
+    public String getId () {
+        return id;
+    }
 }

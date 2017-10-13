@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.io.serial;
 
@@ -35,54 +35,54 @@ import gnu.io.SerialPortEvent;
  */
 public class SerialLinkEvent {
 
-	public static final int DATA_AVAILABLE = SerialPortEvent.DATA_AVAILABLE;
-	public static final int BI = SerialPortEvent.BI;
-	public static final int CD = SerialPortEvent.CD;
-	public static final int CTS = SerialPortEvent.CTS;
-	public static final int DSR = SerialPortEvent.DSR;
-	public static final int FE = SerialPortEvent.FE;
-	public static final int OE = SerialPortEvent.OE;
-	public static final int OUTPUT_BUFFER_EMPTY = SerialPortEvent.OUTPUT_BUFFER_EMPTY;
-	public static final int PE = SerialPortEvent.PE;
-	public static final int RI = SerialPortEvent.RI;
+    public static final int DATA_AVAILABLE = SerialPortEvent.DATA_AVAILABLE;
+    public static final int BI = SerialPortEvent.BI;
+    public static final int CD = SerialPortEvent.CD;
+    public static final int CTS = SerialPortEvent.CTS;
+    public static final int DSR = SerialPortEvent.DSR;
+    public static final int FE = SerialPortEvent.FE;
+    public static final int OE = SerialPortEvent.OE;
+    public static final int OUTPUT_BUFFER_EMPTY = SerialPortEvent.OUTPUT_BUFFER_EMPTY;
+    public static final int PE = SerialPortEvent.PE;
+    public static final int RI = SerialPortEvent.RI;
 
-	private final SerialLinkClient source;
-	private final SerialLinkParameters parameters;
-	private final String message;
-	private final int eventType;
+    private final SerialLinkClient source;
+    private final SerialLinkParameters parameters;
+    private final String message;
+    private final int eventType;
 
-	/**
-	 * Instanciates a new event.
-	 * 
-	 * @param source
-	 *            Source of the event.
-	 * @param params
-	 *            Serial link parameters.
-	 * @param msg
-	 *            Received message if there is one.
-	 * @param type
-	 *            Event type.
-	 */
-	public SerialLinkEvent (SerialLinkClient source, SerialLinkParameters params, String msg, int type) {
-		this.source = source;
-		this.parameters = params;
-		this.message = msg;
-		this.eventType = type;
-	}
+    /**
+     * Instanciates a new event.
+     * 
+     * @param source
+     *            Source of the event.
+     * @param params
+     *            Serial link parameters.
+     * @param msg
+     *            Received message if there is one.
+     * @param type
+     *            Event type.
+     */
+    public SerialLinkEvent(SerialLinkClient source, SerialLinkParameters params, String msg, int type) {
+        this.source = source;
+        this.parameters = params;
+        this.message = msg;
+        this.eventType = type;
+    }
 
-	public SerialLinkClient getSource () {
-		return this.source;
-	}
+    public SerialLinkClient getSource () {
+        return this.source;
+    }
 
-	public SerialLinkParameters getParameters () {
-		return this.parameters;
-	}
+    public SerialLinkParameters getParameters () {
+        return this.parameters;
+    }
 
-	public String getMessage () {
-		return this.message;
-	}
+    public String getMessage () {
+        return this.message;
+    }
 
-	public int getEventType () {
-		return this.eventType;
-	}
+    public int getEventType () {
+        return this.eventType;
+    }
 }

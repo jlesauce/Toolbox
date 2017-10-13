@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget;
 
@@ -46,96 +46,96 @@ import org.apache.logging.log4j.Logger;
  */
 public class SplashScreen extends Frame {
 
-	private static final long serialVersionUID = 5393048810570745511L;
+    private static final long serialVersionUID = 5393048810570745511L;
 
-	private static final int IMAGE_ID = 0;
-	protected static final ImageObserver NO_OBSERVER = null;
+    private static final int IMAGE_ID = 0;
+    protected static final ImageObserver NO_OBSERVER = null;
 
-	private final Logger logger;
-	private final Image image;
+    private final Logger logger;
+    private final Image image;
 
-	/**
-	 * Permet d'instancier le splash screen.
-	 * 
-	 * @param img
-	 *            Image du splash screen.
-	 */
-	public SplashScreen (final Image img) {
-		if (img != null) {
-			this.logger = LogManager.getLogger();
-			this.image = img;
-			MediaTracker mediaTracker = new MediaTracker(this);
-			setSize(img.getWidth(SplashScreen.NO_OBSERVER), img.getHeight(SplashScreen.NO_OBSERVER));
-			center();
-			mediaTracker.addImage(img, SplashScreen.IMAGE_ID);
-			try {
-				mediaTracker.waitForID(SplashScreen.IMAGE_ID);
-			} catch (InterruptedException e) {
-				this.logger.error("Cannot track image load", e);
-			}
-		} else {
-			throw new NullPointerException("Image is null");
-		}
-	}
+    /**
+     * Permet d'instancier le splash screen.
+     * 
+     * @param img
+     *            Image du splash screen.
+     */
+    public SplashScreen(final Image img) {
+        if (img != null) {
+            this.logger = LogManager.getLogger();
+            this.image = img;
+            MediaTracker mediaTracker = new MediaTracker(this);
+            setSize(img.getWidth(SplashScreen.NO_OBSERVER), img.getHeight(SplashScreen.NO_OBSERVER));
+            center();
+            mediaTracker.addImage(img, SplashScreen.IMAGE_ID);
+            try {
+                mediaTracker.waitForID(SplashScreen.IMAGE_ID);
+            } catch (InterruptedException e) {
+                this.logger.error("Cannot track image load", e);
+            }
+        } else {
+            throw new NullPointerException("Image is null");
+        }
+    }
 
-	/**
-	 * Permet d'afficher le splash screen.
-	 */
-	public void splash () {
-		SplashWindow splashWindow = new SplashWindow(this, this.image);
-		splashWindow.showGui();
-	}
+    /**
+     * Permet d'afficher le splash screen.
+     */
+    public void splash () {
+        SplashWindow splashWindow = new SplashWindow(this, this.image);
+        splashWindow.showGui();
+    }
 
-	/**
-	 * Permet de centrer la fenêtre affichée.
-	 */
-	private void center () {
-		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-		Rectangle frame = getBounds();
-		setLocation((screen.width - frame.width) / 2, (screen.height - frame.height) / 2);
-	}
+    /**
+     * Permet de centrer la fenêtre affichée.
+     */
+    private void center () {
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle frame = getBounds();
+        setLocation((screen.width - frame.width) / 2, (screen.height - frame.height) / 2);
+    }
 
-	/**
-	 * Fenêtre contenant l'image du splash screen.
-	 * 
-	 * @author LE SAUCE Julien
-	 * @date Feb 11, 2015
-	 */
-	private final class SplashWindow extends Window {
+    /**
+     * Fenêtre contenant l'image du splash screen.
+     * 
+     * @author LE SAUCE Julien
+     * @date Feb 11, 2015
+     */
+    private final class SplashWindow extends Window {
 
-		private static final long serialVersionUID = -67110377585090567L;
+        private static final long serialVersionUID = -67110377585090567L;
 
-		private final Image img;
+        private final Image img;
 
-		/**
-		 * Permet d'instancier la fenêtre.
-		 * 
-		 * @param parent
-		 *            Fenêtre parente.
-		 * @param img
-		 *            Image du splash screen.
-		 */
-		public SplashWindow (Frame parent, Image img) {
-			super(parent);
-			this.img = img;
-		}
+        /**
+         * Permet d'instancier la fenêtre.
+         * 
+         * @param parent
+         *            Fenêtre parente.
+         * @param img
+         *            Image du splash screen.
+         */
+        public SplashWindow(Frame parent, Image img) {
+            super(parent);
+            this.img = img;
+        }
 
-		@Override
-		public void paint (Graphics graphics) {
-			if (this.img != null) {
-				graphics.drawImage(this.img, 0, 0, this);
-			}
-		}
+        @Override
+        public void paint (Graphics graphics) {
+            if (this.img != null) {
+                graphics.drawImage(this.img, 0, 0, this);
+            }
+        }
 
-		/**
-		 * Permet d'afficher la fenêtre.
-		 */
-		public void showGui () {
-			setSize(this.img.getWidth(SplashScreen.NO_OBSERVER), this.img.getHeight(SplashScreen.NO_OBSERVER));
-			Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-			Rectangle window = getBounds();
-			setLocation((screen.width - window.width) / 2, (screen.height - window.height) / 2);
-			setVisible(true);
-		}
-	}
+        /**
+         * Permet d'afficher la fenêtre.
+         */
+        public void showGui () {
+            setSize(this.img.getWidth(SplashScreen.NO_OBSERVER), this.img.getHeight(SplashScreen.NO_OBSERVER));
+            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+            Rectangle window = getBounds();
+            setLocation((screen.width - window.width) / 2, (screen.height - window.height) / 2);
+            setVisible(true);
+        }
+    }
 }

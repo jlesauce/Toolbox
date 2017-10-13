@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -37,81 +37,81 @@ import javax.swing.SpinnerNumberModel;
  */
 public class WrappingNumberModel extends SpinnerNumberModel {
 
-	private static final long serialVersionUID = 8777236444254445358L;
+    private static final long serialVersionUID = 8777236444254445358L;
 
-	/**
-	 * Permet d'instancier un modèle par défaut.
-	 */
-	public WrappingNumberModel () {
-		this(0, null, null, 1);
-	}
+    /**
+     * Permet d'instancier un modèle par défaut.
+     */
+    public WrappingNumberModel() {
+        this(0, null, null, 1);
+    }
 
-	/**
-	 * Permet d'instancier un modèle en spécifiant les valeurs limites et la
-	 * valeur d'incrément.
-	 * 
-	 * @param value
-	 *            Valeur initiale du modèle.
-	 * @param minimum
-	 *            Valeur minimale.
-	 * @param maximum
-	 *            Valeur maximale.
-	 * @param stepSize
-	 *            Incrément entre deux valeurs consécutives.
-	 */
-	public WrappingNumberModel (int value, int minimum, int maximum, int stepSize) {
-		this(value, new Integer(minimum), new Integer(maximum), (Number) stepSize);
-	}
+    /**
+     * Permet d'instancier un modèle en spécifiant les valeurs limites et la valeur
+     * d'incrément.
+     * 
+     * @param value
+     *            Valeur initiale du modèle.
+     * @param minimum
+     *            Valeur minimale.
+     * @param maximum
+     *            Valeur maximale.
+     * @param stepSize
+     *            Incrément entre deux valeurs consécutives.
+     */
+    public WrappingNumberModel(int value, int minimum, int maximum, int stepSize) {
+        this(value, new Integer(minimum), new Integer(maximum), (Number) stepSize);
+    }
 
-	/**
-	 * Permet d'instancier un modèle en spécifiant les valeurs limites et la
-	 * valeur d'incrément.
-	 * 
-	 * @param value
-	 *            Valeur initiale du modèle.
-	 * @param minimum
-	 *            Valeur minimale.
-	 * @param maximum
-	 *            Valeur maximale.
-	 * @param stepSize
-	 *            Incrément entre deux valeurs consécutives.
-	 */
-	public WrappingNumberModel (long value, long minimum, long maximum, long stepSize) {
-		this(value, new Long(minimum), new Long(maximum), (Number) stepSize);
-	}
+    /**
+     * Permet d'instancier un modèle en spécifiant les valeurs limites et la valeur
+     * d'incrément.
+     * 
+     * @param value
+     *            Valeur initiale du modèle.
+     * @param minimum
+     *            Valeur minimale.
+     * @param maximum
+     *            Valeur maximale.
+     * @param stepSize
+     *            Incrément entre deux valeurs consécutives.
+     */
+    public WrappingNumberModel(long value, long minimum, long maximum, long stepSize) {
+        this(value, new Long(minimum), new Long(maximum), (Number) stepSize);
+    }
 
-	/**
-	 * Permet d'instancier un modèle en spécifiant les valeurs limites et la
-	 * valeur d'incrément.
-	 * 
-	 * @param value
-	 *            Valeur initiale du modèle.
-	 * @param minimum
-	 *            Valeur minimale.
-	 * @param maximum
-	 *            Valeur maximale.
-	 * @param stepSize
-	 *            Incrément entre deux valeurs consécutives.
-	 */
-	public WrappingNumberModel (Number value, Comparable<?> minimum, Comparable<?> maximum, Number stepSize) {
-		super(value, minimum, maximum, stepSize);
-	}
+    /**
+     * Permet d'instancier un modèle en spécifiant les valeurs limites et la valeur
+     * d'incrément.
+     * 
+     * @param value
+     *            Valeur initiale du modèle.
+     * @param minimum
+     *            Valeur minimale.
+     * @param maximum
+     *            Valeur maximale.
+     * @param stepSize
+     *            Incrément entre deux valeurs consécutives.
+     */
+    public WrappingNumberModel(Number value, Comparable<?> minimum, Comparable<?> maximum, Number stepSize) {
+        super(value, minimum, maximum, stepSize);
+    }
 
-	@Override
-	public Object getNextValue () {
-		if (getValue().equals(getMaximum())) {
-			return getMinimum();
-		} else {
-			return super.getNextValue();
-		}
-	}
+    @Override
+    public Object getNextValue () {
+        if (getValue().equals(getMaximum())) {
+            return getMinimum();
+        } else {
+            return super.getNextValue();
+        }
+    }
 
-	@Override
-	public Object getPreviousValue () {
-		if (getValue().equals(getMinimum())) {
-			return getMaximum();
-		} else {
-			return super.getPreviousValue();
-		}
-	}
+    @Override
+    public Object getPreviousValue () {
+        if (getValue().equals(getMinimum())) {
+            return getMaximum();
+        } else {
+            return super.getPreviousValue();
+        }
+    }
 }

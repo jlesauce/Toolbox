@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget;
 
@@ -36,33 +36,33 @@ import org.jls.toolbox.widget.ui.DesktopPane;
  */
 public class XMLMessageFrame extends InternalFrame {
 
-	private static final long serialVersionUID = 3020342855466613427L;
+    private static final long serialVersionUID = 3020342855466613427L;
 
-	private final XMLViewer xmlViewer;
+    private final XMLViewer xmlViewer;
 
-	/**
-	 * Permet d'instancier une fenêtre d'affichage.
-	 * 
-	 * @param id
-	 *            Identifiant unique de la fenêtre permettant sa gestion par le
-	 *            {@link DesktopPane}.
-	 * @param title
-	 *            Titre de la fenêtre.
-	 */
-	public XMLMessageFrame (final String id, final String title) {
-		super(id, title, true, true, true, false);
-		setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-		this.xmlViewer = new XMLViewer("");
-		setContentPane(this.xmlViewer);
-	}
+    /**
+     * Permet d'instancier une fenêtre d'affichage.
+     * 
+     * @param id
+     *            Identifiant unique de la fenêtre permettant sa gestion par le
+     *            {@link DesktopPane}.
+     * @param title
+     *            Titre de la fenêtre.
+     */
+    public XMLMessageFrame(final String id, final String title) {
+        super(id, title, true, true, true, false);
+        setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+        this.xmlViewer = new XMLViewer("");
+        setContentPane(this.xmlViewer);
+    }
 
-	/**
-	 * Permet de mettre à jour le message affiché par la fenêtre.
-	 * 
-	 * @param msg
-	 *            Message à afficher.
-	 */
-	public void updateMessage (String msg) {
-		this.xmlViewer.setText(msg);
-	}
+    /**
+     * Permet de mettre à jour le message affiché par la fenêtre.
+     * 
+     * @param msg
+     *            Message à afficher.
+     */
+    public void updateMessage (String msg) {
+        this.xmlViewer.setText(msg);
+    }
 }

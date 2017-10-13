@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.math;
 
@@ -33,52 +33,51 @@ package org.jls.toolbox.math;
  */
 public class RemezException extends Exception {
 
-	private static final long serialVersionUID = 4252292711161817573L;
+    private static final long serialVersionUID = 4252292711161817573L;
 
-	/**
-	 * Permet d'instancier une nouvelle exception sans message de détails. La
-	 * cause n'est pas initialisée, et doit en conséquence être initialisée par
-	 * un appel à {@link Exception#initCause}.
-	 */
-	public RemezException () {
-		super();
-	}
+    /**
+     * Permet d'instancier une nouvelle exception sans message de détails. La cause
+     * n'est pas initialisée, et doit en conséquence être initialisée par un appel à
+     * {@link Exception#initCause}.
+     */
+    public RemezException() {
+        super();
+    }
 
-	/**
-	 * Permet d'instancier une nouvelle exception avec le message détaillé
-	 * spécifié et la cause.
-	 * 
-	 * @param message
-	 *            Message de détail de l'exception.
-	 * @param cause
-	 *            Cause de l'exception.
-	 */
-	public RemezException (String message, Throwable cause) {
-		super(message, cause);
-	}
+    /**
+     * Permet d'instancier une nouvelle exception avec le message détaillé spécifié
+     * et la cause.
+     * 
+     * @param message
+     *            Message de détail de l'exception.
+     * @param cause
+     *            Cause de l'exception.
+     */
+    public RemezException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
-	/**
-	 * Permet d'instancier une nouvelle exception avec le message détaillé
-	 * spécifié. La cause n'est pas initialisée, et doit en conséquence être
-	 * initialisée par un appel à {@link Exception#initCause}.
-	 * 
-	 * @param message
-	 *            Message de détail de l'exception.
-	 */
-	public RemezException (String message) {
-		super(message);
-	}
+    /**
+     * Permet d'instancier une nouvelle exception avec le message détaillé spécifié.
+     * La cause n'est pas initialisée, et doit en conséquence être initialisée par
+     * un appel à {@link Exception#initCause}.
+     * 
+     * @param message
+     *            Message de détail de l'exception.
+     */
+    public RemezException(String message) {
+        super(message);
+    }
 
-	/**
-	 * Permet d'instancier une nouvelle exception avec la cause et le message
-	 * détaillé tel que <tt>(cause==null ? null : cause.toString())</tt>
-	 * (contient typiquement la classe et le message détaillé de la
-	 * <tt>cause</tt>).
-	 * 
-	 * @param cause
-	 *            Cause de l'exception.
-	 */
-	public RemezException (Throwable cause) {
-		super(cause);
-	}
+    /**
+     * Permet d'instancier une nouvelle exception avec la cause et le message
+     * détaillé tel que <tt>(cause==null ? null : cause.toString())</tt> (contient
+     * typiquement la classe et le message détaillé de la <tt>cause</tt>).
+     * 
+     * @param cause
+     *            Cause de l'exception.
+     */
+    public RemezException(Throwable cause) {
+        super(cause);
+    }
 }

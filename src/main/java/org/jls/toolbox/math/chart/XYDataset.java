@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.math.chart;
 
@@ -44,58 +44,58 @@ import org.jfree.data.xy.AbstractXYDataset;
  */
 public class XYDataset extends AbstractXYDataset implements Observer {
 
-	private static final long serialVersionUID = -2492867249593419895L;
+    private static final long serialVersionUID = -2492867249593419895L;
 
-	private final ArrayList<AbstractXYZDataModel> dataModels;
+    private final ArrayList<AbstractXYZDataModel> dataModels;
 
-	/**
-	 * Permet d'instancier un set de données à partir des modèles de données des
-	 * courbes.
-	 * 
-	 * @param xyDataModel
-	 *            Modèles de données des courbes à afficher.
-	 */
-	public XYDataset (AbstractXYZDataModel... xyDataModel) {
-		super();
-		this.dataModels = new ArrayList<>();
-		for (AbstractXYZDataModel model : xyDataModel) {
-			this.dataModels.add(model);
-			model.addObserver(this);
-		}
-	}
+    /**
+     * Permet d'instancier un set de données à partir des modèles de données des
+     * courbes.
+     * 
+     * @param xyDataModel
+     *            Modèles de données des courbes à afficher.
+     */
+    public XYDataset(AbstractXYZDataModel... xyDataModel) {
+        super();
+        this.dataModels = new ArrayList<>();
+        for (AbstractXYZDataModel model : xyDataModel) {
+            this.dataModels.add(model);
+            model.addObserver(this);
+        }
+    }
 
-	@Override
-	public void update (Observable obs, Object arg) {
-		if (obs instanceof AbstractXYZDataModel) {
-			fireDatasetChanged();
-		}
-	}
+    @Override
+    public void update (Observable obs, Object arg) {
+        if (obs instanceof AbstractXYZDataModel) {
+            fireDatasetChanged();
+        }
+    }
 
-	@Override
-	public int getItemCount (int series) {
-		AbstractXYZDataModel model = this.dataModels.get(series);
-		return model != null ? model.getSize() : 0;
-	}
+    @Override
+    public int getItemCount (int series) {
+        AbstractXYZDataModel model = this.dataModels.get(series);
+        return model != null ? model.getSize() : 0;
+    }
 
-	@Override
-	public Number getX (int series, int item) {
-		AbstractXYZDataModel model = this.dataModels.get(series);
-		return model != null ? (Number) model.getX(item) : null;
-	}
+    @Override
+    public Number getX (int series, int item) {
+        AbstractXYZDataModel model = this.dataModels.get(series);
+        return model != null ? (Number) model.getX(item) : null;
+    }
 
-	@Override
-	public Number getY (int series, int item) {
-		AbstractXYZDataModel model = this.dataModels.get(series);
-		return model != null ? (Number) model.getY(item) : null;
-	}
+    @Override
+    public Number getY (int series, int item) {
+        AbstractXYZDataModel model = this.dataModels.get(series);
+        return model != null ? (Number) model.getY(item) : null;
+    }
 
-	@Override
-	public int getSeriesCount () {
-		return this.dataModels != null ? this.dataModels.size() : 0;
-	}
+    @Override
+    public int getSeriesCount () {
+        return this.dataModels != null ? this.dataModels.size() : 0;
+    }
 
-	@Override
-	public Comparable<?> getSeriesKey (int series) {
-		return this.dataModels.get(series).getKey();
-	}
+    @Override
+    public Comparable<?> getSeriesKey (int series) {
+        return this.dataModels.get(series).getKey();
+    }
 }

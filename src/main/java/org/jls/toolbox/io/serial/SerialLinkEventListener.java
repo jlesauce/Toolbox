@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.io.serial;
 
@@ -32,11 +32,11 @@ package org.jls.toolbox.io.serial;
  */
 public interface SerialLinkEventListener {
 
-	/**
-	 * This method is called when an event is triggered on the serial link.
-	 * 
-	 * @param event
-	 *            The triggered event.
-	 */
-	public void onNotify (SerialLinkEvent event);
+    /**
+     * This method is called when an event is triggered on the serial link.
+     * 
+     * @param event
+     *            The triggered event.
+     */
+    public void onNotify (SerialLinkEvent event);
 }

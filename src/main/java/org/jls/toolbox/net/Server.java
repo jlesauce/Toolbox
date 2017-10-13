@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.net;
 
@@ -35,76 +35,76 @@ import java.util.Set;
  */
 public interface Server {
 
-	/**
-	 * Starts the connection thread of the server.
-	 * 
-	 * @throws IOException
-	 *             If an error occurred starting the server thread.
-	 */
-	public void start () throws IOException;
+    /**
+     * Starts the connection thread of the server.
+     * 
+     * @throws IOException
+     *             If an error occurred starting the server thread.
+     */
+    public void start () throws IOException;
 
-	/**
-	 * Stops the connection thread of the server.
-	 * 
-	 * @throws IOException
-	 *             If an error occurred stoping the server thread.
-	 */
-	public void stop () throws IOException;
+    /**
+     * Stops the connection thread of the server.
+     * 
+     * @throws IOException
+     *             If an error occurred stoping the server thread.
+     */
+    public void stop () throws IOException;
 
-	/**
-	 * Sends the specified message to all the connected clients.
-	 * 
-	 * @param msg
-	 *            The message to send.
-	 * @throws IOException
-	 *             If an error occurred sending the message.
-	 * @throws NoClientConnectedException
-	 *             If no client connected to the server.
-	 */
-	public void send (final byte[] msg) throws IOException, NoClientConnectedException;
+    /**
+     * Sends the specified message to all the connected clients.
+     * 
+     * @param msg
+     *            The message to send.
+     * @throws IOException
+     *             If an error occurred sending the message.
+     * @throws NoClientConnectedException
+     *             If no client connected to the server.
+     */
+    public void send (final byte[] msg) throws IOException, NoClientConnectedException;
 
-	/**
-	 * Subscribes the specified listener to the notifications of the network
-	 * interface.
-	 * 
-	 * @param listener
-	 *            The listener to the notifications of the network interface.
-	 * @return <code>true</code> if the listener was added to the list,
-	 *         <code>false</code> if it was already contained.
-	 */
-	public boolean addListener (final InterfaceListener listener);
+    /**
+     * Subscribes the specified listener to the notifications of the network
+     * interface.
+     * 
+     * @param listener
+     *            The listener to the notifications of the network interface.
+     * @return <code>true</code> if the listener was added to the list,
+     *         <code>false</code> if it was already contained.
+     */
+    public boolean addListener (final InterfaceListener listener);
 
-	/**
-	 * Unsubscribes the specified listener to the notifications of the network
-	 * interface.
-	 * 
-	 * @param listener
-	 *            The listener to the notifications of the network interface.
-	 * @return <code>true</code> if the listener was removed from the list,
-	 *         <code>false</code> if it was not contained.
-	 */
-	public boolean removeListener (final InterfaceListener listener);
+    /**
+     * Unsubscribes the specified listener to the notifications of the network
+     * interface.
+     * 
+     * @param listener
+     *            The listener to the notifications of the network interface.
+     * @return <code>true</code> if the listener was removed from the list,
+     *         <code>false</code> if it was not contained.
+     */
+    public boolean removeListener (final InterfaceListener listener);
 
-	/**
-	 * Returns <code>true</code> if the server connection thread is running,
-	 * <code>false</code> otherwise.
-	 * 
-	 * @return <code>true</code> if the server connection thread is running,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean isRunning ();
+    /**
+     * Returns <code>true</code> if the server connection thread is running,
+     * <code>false</code> otherwise.
+     * 
+     * @return <code>true</code> if the server connection thread is running,
+     *         <code>false</code> otherwise.
+     */
+    public boolean isRunning ();
 
-	/**
-	 * Returns the network interface descriptor associated with this server.
-	 * 
-	 * @return {@link Interface} associated with this server.
-	 */
-	public Interface getInterface ();
+    /**
+     * Returns the network interface descriptor associated with this server.
+     * 
+     * @return {@link Interface} associated with this server.
+     */
+    public Interface getInterface ();
 
-	/**
-	 * Returns the list of the connected clients.
-	 * 
-	 * @return List of the connected clients.
-	 */
-	public Set<? extends Interface> getClients ();
+    /**
+     * Returns the list of the connected clients.
+     * 
+     * @return List of the connected clients.
+     */
+    public Set<? extends Interface> getClients ();
 }

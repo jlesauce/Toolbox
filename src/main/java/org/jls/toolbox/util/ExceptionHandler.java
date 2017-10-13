@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util;
 
@@ -32,14 +32,14 @@ package org.jls.toolbox.util;
  */
 public interface ExceptionHandler {
 
-	/**
-	 * Cette méthode est appelée lorsqu'une exception est lancée par le code
-	 * exécutif.
-	 * 
-	 * @param t
-	 *            Exception lancée.
-	 * @param src
-	 *            Objet ayant lancé l'exception.
-	 */
-	public void onException (final Throwable t, final Object src);
+    /**
+     * Cette méthode est appelée lorsqu'une exception est lancée par le code
+     * exécutif.
+     * 
+     * @param t
+     *            Exception lancée.
+     * @param src
+     *            Objet ayant lancé l'exception.
+     */
+    public void onException (final Throwable t, final Object src);
 }

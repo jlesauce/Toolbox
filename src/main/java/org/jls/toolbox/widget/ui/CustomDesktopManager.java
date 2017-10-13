@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.ui;
 
@@ -42,34 +42,34 @@ import javax.swing.JInternalFrame;
  */
 public class CustomDesktopManager extends DefaultDesktopManager {
 
-	private static final long serialVersionUID = 6139283750584155275L;
+    private static final long serialVersionUID = 6139283750584155275L;
 
-	@Override
-	public void dragFrame (JComponent f, int newX, int newY) {
-		if (f instanceof JInternalFrame) {
-			JInternalFrame frame = (JInternalFrame) f;
-			JDesktopPane desk = frame.getDesktopPane();
-			Dimension d = desk.getSize();
-			boolean tooFarLeft = newX < 0;
-			boolean tooFarRight = newX + frame.getWidth() > d.width;
-			boolean tooHigh = newY < 0;
-			boolean tooLow = newY + frame.getHeight() > d.height;
-			int x = newX, y = newY;
-			// Horizontalement
-			if (tooFarLeft) { // Trop à gauche
-				x = 0;
-			} else if (tooFarRight) { // Trop à droite
-				x = d.width - Math.min(frame.getWidth(), d.width);
-			}
-			// Verticalement
-			if (tooHigh) { // Trop haut
-				y = 0;
-			} else if (tooLow) { // Trop bas
-				y = d.height - Math.min(frame.getHeight(), d.height);
-			}
-			super.dragFrame(f, x, y);
-		} else {
-			super.dragFrame(f, newX, newY);
-		}
-	}
+    @Override
+    public void dragFrame (JComponent f, int newX, int newY) {
+        if (f instanceof JInternalFrame) {
+            JInternalFrame frame = (JInternalFrame) f;
+            JDesktopPane desk = frame.getDesktopPane();
+            Dimension d = desk.getSize();
+            boolean tooFarLeft = newX < 0;
+            boolean tooFarRight = newX + frame.getWidth() > d.width;
+            boolean tooHigh = newY < 0;
+            boolean tooLow = newY + frame.getHeight() > d.height;
+            int x = newX, y = newY;
+            // Horizontalement
+            if (tooFarLeft) { // Trop à gauche
+                x = 0;
+            } else if (tooFarRight) { // Trop à droite
+                x = d.width - Math.min(frame.getWidth(), d.width);
+            }
+            // Verticalement
+            if (tooHigh) { // Trop haut
+                y = 0;
+            } else if (tooLow) { // Trop bas
+                y = d.height - Math.min(frame.getHeight(), d.height);
+            }
+            super.dragFrame(f, x, y);
+        } else {
+            super.dragFrame(f, newX, newY);
+        }
+    }
 }

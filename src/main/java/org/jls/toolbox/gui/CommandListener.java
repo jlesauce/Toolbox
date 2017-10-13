@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.gui;
 
@@ -35,24 +35,24 @@ import java.util.Set;
  */
 public class CommandListener implements java.awt.event.ActionListener {
 
-	private final AbstractView view;
-	private final Set<?> listeners;
+    private final AbstractView view;
+    private final Set<?> listeners;
 
-	/**
-	 * Instanciates a new action.
-	 * 
-	 * @param view
-	 *            Graphical interface publishing the user actions.
-	 */
-	public CommandListener (final AbstractView view) {
-		this.view = view;
-		this.listeners = view.getListeners();
-	}
+    /**
+     * Instanciates a new action.
+     * 
+     * @param view
+     *            Graphical interface publishing the user actions.
+     */
+    public CommandListener(final AbstractView view) {
+        this.view = view;
+        this.listeners = view.getListeners();
+    }
 
-	@Override
-	public void actionPerformed (ActionEvent e) {
-		for (Object o : this.listeners) {
-			Invoker.invoke(o, e, this.view);
-		}
-	}
+    @Override
+    public void actionPerformed (ActionEvent e) {
+        for (Object o : this.listeners) {
+            Invoker.invoke(o, e, this.view);
+        }
+    }
 }

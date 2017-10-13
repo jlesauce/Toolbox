@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.math;
 
@@ -36,36 +36,36 @@ import org.jls.toolbox.math.Window.WindowType;
  */
 public class WaveformGenerator {
 
-	/**
-	 * Permet de générer une forme d'onde sinusoïdale modulée en fréquence et en
-	 * amplitude, de fréquence centrale Fc, de largeur de bande B, de durée T et
-	 * échantillonnée à la fréquence Fs.
-	 * 
-	 * @param win
-	 *            Permet de spécifier le type d'enveloppe pour la modulation
-	 *            d'amplitude.
-	 * @param sw
-	 *            Permet de spécifier le type de balayage de fréquence.
-	 * @param fc
-	 *            Fréquence centrale de la forme d'onde en hertz.
-	 * @param b
-	 *            Largeur de bande en hertz.
-	 * @param fs
-	 *            Fréquence d'échantillonnage en hertz.
-	 * @param T
-	 *            Durée de la forme d'onde en millisecondes.
-	 * @return Tableau de taille N représentant les échantillons de la forme
-	 *         d'onde générée avec <i>N=T*Fs</i>.
-	 */
-	public static double[] computeWaveform (WindowType win, SweepType sw, int fc, int b, int fs, long T) {
-		if (sw.equals(SweepType.NONE)) {
-			return Window.computeWindow(win, fs, T);
-		}
-		double[] wn = Sweep.computeFM(sw, fc, b, fs, T);
-		double[] env = Window.computeWindow(win, fs, T);
-		for (int n = 0; n < wn.length; n++) {
-			wn[n] *= env[n];
-		}
-		return wn;
-	}
+    /**
+     * Permet de générer une forme d'onde sinusoïdale modulée en fréquence et en
+     * amplitude, de fréquence centrale Fc, de largeur de bande B, de durée T et
+     * échantillonnée à la fréquence Fs.
+     * 
+     * @param win
+     *            Permet de spécifier le type d'enveloppe pour la modulation
+     *            d'amplitude.
+     * @param sw
+     *            Permet de spécifier le type de balayage de fréquence.
+     * @param fc
+     *            Fréquence centrale de la forme d'onde en hertz.
+     * @param b
+     *            Largeur de bande en hertz.
+     * @param fs
+     *            Fréquence d'échantillonnage en hertz.
+     * @param T
+     *            Durée de la forme d'onde en millisecondes.
+     * @return Tableau de taille N représentant les échantillons de la forme d'onde
+     *         générée avec <i>N=T*Fs</i>.
+     */
+    public static double[] computeWaveform (WindowType win, SweepType sw, int fc, int b, int fs, long T) {
+        if (sw.equals(SweepType.NONE)) {
+            return Window.computeWindow(win, fs, T);
+        }
+        double[] wn = Sweep.computeFM(sw, fc, b, fs, T);
+        double[] env = Window.computeWindow(win, fs, T);
+        for (int n = 0; n < wn.length; n++) {
+            wn[n] *= env[n];
+        }
+        return wn;
+    }
 }

@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.spinner;
 
@@ -37,41 +37,40 @@ import javax.swing.SpinnerModel;
  */
 public class HexSpinner extends JSpinner {
 
-	private static final long serialVersionUID = 1152947943927384286L;
-	
-	/**
-	 * Permet d'instancier un spinner hexadécimal à partir de son modèle de
-	 * données.
-	 * 
-	 * @param model
-	 *            Modèle de données du spinner.
-	 */
-	public HexSpinner (HexSpinnerModel model) {
-		super(model);
-	}
+    private static final long serialVersionUID = 1152947943927384286L;
 
-	@Override
-	protected JComponent createEditor (SpinnerModel model) {
-		return new HexSpinnerEditor(this);
-	}
+    /**
+     * Permet d'instancier un spinner hexadécimal à partir de son modèle de données.
+     * 
+     * @param model
+     *            Modèle de données du spinner.
+     */
+    public HexSpinner(HexSpinnerModel model) {
+        super(model);
+    }
 
-	@Override
-	public HexSpinnerModel getModel () {
-		return (HexSpinnerModel) super.getModel();
-	}
-	
-	@Override
-	public void setValue (Object value) {
-		HexSpinnerModel model = getModel();
-		model.setValue(value);
-	}
+    @Override
+    protected JComponent createEditor (SpinnerModel model) {
+        return new HexSpinnerEditor(this);
+    }
 
-	/**
-	 * Renvoie la valeur décimale stockée dans le modèle de données du spinner.
-	 * 
-	 * @return Valeur décimale du modèle de données du spinner.
-	 */
-	public long getNumber () {
-		return getModel().getNumber();
-	}
+    @Override
+    public HexSpinnerModel getModel () {
+        return (HexSpinnerModel) super.getModel();
+    }
+
+    @Override
+    public void setValue (Object value) {
+        HexSpinnerModel model = getModel();
+        model.setValue(value);
+    }
+
+    /**
+     * Renvoie la valeur décimale stockée dans le modèle de données du spinner.
+     * 
+     * @return Valeur décimale du modèle de données du spinner.
+     */
+    public long getNumber () {
+        return getModel().getNumber();
+    }
 }

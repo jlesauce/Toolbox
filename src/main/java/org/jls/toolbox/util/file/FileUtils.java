@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.util.file;
 
@@ -57,7 +57,7 @@ public class FileUtils {
      * @return <code>true</code> if the specified file or directory has been
      *         correctly deleted, <code>false</code> otherwise.
      */
-    public static boolean delete(final File file, final boolean recursive) {
+    public static boolean delete (final File file, final boolean recursive) {
         if (file.exists()) {
             // If it's a file or recursive option is not selected
             if (!file.isDirectory() || !recursive) {
@@ -89,7 +89,7 @@ public class FileUtils {
      *             If an error occurred copying the files to the specified
      *             destination.
      */
-    public static void copyFolder(final File src, final File dst) throws IOException {
+    public static void copyFolder (final File src, final File dst) throws IOException {
         // Checks input
         if (src == null) {
             throw new NullPointerException("Source cannot be null");
@@ -141,7 +141,7 @@ public class FileUtils {
      * @throws FileNotFoundException
      *             If folder creation failed.
      */
-    private static void createDirectory(final File dst) throws FileNotFoundException {
+    private static void createDirectory (final File dst) throws FileNotFoundException {
         if (!dst.mkdirs()) {
             throw new FileNotFoundException("Failed to create folder " + dst.getAbsolutePath());
         }

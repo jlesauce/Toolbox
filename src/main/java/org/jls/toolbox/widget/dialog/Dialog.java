@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.widget.dialog;
 
@@ -41,88 +41,87 @@ import net.miginfocom.swing.MigLayout;
  */
 public class Dialog extends JDialog {
 
-	private static final long serialVersionUID = 2354616214737733368L;
+    private static final long serialVersionUID = 2354616214737733368L;
 
-	private final JFrame parent;
-	private final Component content;
+    private final JFrame parent;
+    private final Component content;
 
-	/**
-	 * Permet d'instancier une fenêtre de dialogue.
-	 * 
-	 * @param parent
-	 *            Parent de la fenêtre.
-	 * @param title
-	 *            Titre de la fenêtre de dialogue.
-	 * @param content
-	 *            Composant à ajouter à la fenêtre de dialogue.
-	 */
-	public Dialog (final JFrame parent, final String title, final Component content) {
-		super(parent, title, true);
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setResizable(false);
-		this.parent = parent;
-		this.content = content;
-	}
+    /**
+     * Permet d'instancier une fenêtre de dialogue.
+     * 
+     * @param parent
+     *            Parent de la fenêtre.
+     * @param title
+     *            Titre de la fenêtre de dialogue.
+     * @param content
+     *            Composant à ajouter à la fenêtre de dialogue.
+     */
+    public Dialog(final JFrame parent, final String title, final Component content) {
+        super(parent, title, true);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        this.parent = parent;
+        this.content = content;
+    }
 
-	/**
-	 * Permet d'afficher le dialogue à l'utilisateur.
-	 * 
-	 * @return Option sélectionnée par l'utilisateur (OK ou Cancel).
-	 */
-	public int showDialog () {
-		createComponents();
-		setStyle();
-		addListeners();
-		pack();
-		setLocationRelativeTo(this.parent);
-		setVisible(true);
-		return 0;
-	}
+    /**
+     * Permet d'afficher le dialogue à l'utilisateur.
+     * 
+     * @return Option sélectionnée par l'utilisateur (OK ou Cancel).
+     */
+    public int showDialog () {
+        createComponents();
+        setStyle();
+        addListeners();
+        pack();
+        setLocationRelativeTo(this.parent);
+        setVisible(true);
+        return 0;
+    }
 
-	/**
-	 * Action réalisée lorsque l'utilisateur clique sur le bouton <i>OK</i>.
-	 */
-	protected void onValidAction () {
-		dispose();
-	}
+    /**
+     * Action réalisée lorsque l'utilisateur clique sur le bouton <i>OK</i>.
+     */
+    protected void onValidAction () {
+        dispose();
+    }
 
-	/**
-	 * Action réalisée lorsque l'utilisateur clique sur le bouton <i>Cancel</i>.
-	 */
-	protected void onCancelAction () {
-		dispose();
-	}
+    /**
+     * Action réalisée lorsque l'utilisateur clique sur le bouton <i>Cancel</i>.
+     */
+    protected void onCancelAction () {
+        dispose();
+    }
 
-	/**
-	 * Permet d'instancier les différents éléments qui composent l'interface
-	 * graphique.
-	 */
-	protected void createComponents () {
-		//
-	}
+    /**
+     * Permet d'instancier les différents éléments qui composent l'interface
+     * graphique.
+     */
+    protected void createComponents () {
+        //
+    }
 
-	/**
-	 * Permet de créer l'interface graphique à partir des éléments qui la
-	 * compose.
-	 */
-	protected void setStyle () {
-		getContentPane().setLayout(new MigLayout("fill"));
-		getContentPane().add(this.content, "grow, wrap");
-	}
+    /**
+     * Permet de créer l'interface graphique à partir des éléments qui la compose.
+     */
+    protected void setStyle () {
+        getContentPane().setLayout(new MigLayout("fill"));
+        getContentPane().add(this.content, "grow, wrap");
+    }
 
-	/**
-	 * Permet d'ajouter les différents écouteurs sur les composants de
-	 * l'interface graphique.
-	 */
-	protected void addListeners () {
-		//
-	}
+    /**
+     * Permet d'ajouter les différents écouteurs sur les composants de l'interface
+     * graphique.
+     */
+    protected void addListeners () {
+        //
+    }
 
-	public JFrame getParentFrame () {
-		return this.parent;
-	}
+    public JFrame getParentFrame () {
+        return this.parent;
+    }
 
-	public Component getContent () {
-		return this.content;
-	}
+    public Component getContent () {
+        return this.content;
+    }
 }

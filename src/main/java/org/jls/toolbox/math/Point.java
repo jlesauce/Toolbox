@@ -1,4 +1,4 @@
-/*#
+/*
  * The MIT License (MIT)
  * 
  * Copyright (c) 2016 LE SAUCE Julien
@@ -20,7 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- #*/
+ */
 
 package org.jls.toolbox.math;
 
@@ -32,63 +32,62 @@ package org.jls.toolbox.math;
  */
 public class Point {
 
-	private double x;
-	private double y;
-	private double z;
+    private double x;
+    private double y;
+    private double z;
 
-	/**
-	 * Permet d'instancier un point à partir de ses coordonnées cartésiennes
-	 * (x,y).
-	 * 
-	 * @param x
-	 *            Abscisse du point.
-	 * @param y
-	 *            Ordonnée du point.
-	 */
-	public Point (final double x, final double y) {
-		this.x = x;
-		this.y = y;
-		this.z = 0.0;
-	}
+    /**
+     * Permet d'instancier un point à partir de ses coordonnées cartésiennes (x,y).
+     * 
+     * @param x
+     *            Abscisse du point.
+     * @param y
+     *            Ordonnée du point.
+     */
+    public Point(final double x, final double y) {
+        this.x = x;
+        this.y = y;
+        this.z = 0.0;
+    }
 
-	/**
-	 * Permet d'instancier un point à partir de ses coordonnées cartésiennes
-	 * (x,y,z).
-	 * 
-	 * @param x
-	 *            Abscisse du point.
-	 * @param y
-	 *            Ordonnée du point.
-	 * @param z
-	 *            Cote du point.
-	 */
-	public Point (final double x, final double y, final double z) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
+    /**
+     * Permet d'instancier un point à partir de ses coordonnées cartésiennes
+     * (x,y,z).
+     * 
+     * @param x
+     *            Abscisse du point.
+     * @param y
+     *            Ordonnée du point.
+     * @param z
+     *            Cote du point.
+     */
+    public Point(final double x, final double y, final double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 
-	public double getX () {
-		return this.x;
-	}
+    public double getX () {
+        return this.x;
+    }
 
-	public void setX (final double x) {
-		this.x = x;
-	}
+    public void setX (final double x) {
+        this.x = x;
+    }
 
-	public double getY () {
-		return this.y;
-	}
+    public double getY () {
+        return this.y;
+    }
 
-	public void setY (final double y) {
-		this.y = y;
-	}
+    public void setY (final double y) {
+        this.y = y;
+    }
 
-	public double getZ () {
-		return this.z;
-	}
+    public double getZ () {
+        return this.z;
+    }
 
-	public void setZ (final double z) {
-		this.z = z;
-	}
+    public void setZ (final double z) {
+        this.z = z;
+    }
 }
