@@ -36,7 +36,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-public class TestFileFilter {
+public class FileFilterTest {
 
     private final TemporaryFolder temporaryFolder = new TemporaryFolder();
     private File fakeFile;
