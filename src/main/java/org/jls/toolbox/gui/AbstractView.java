@@ -1,18 +1,18 @@
 /*
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2017 LE SAUCE Julien
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -37,9 +37,8 @@ import org.apache.logging.log4j.LogManager;
 
 /**
  * Represents a view in the Model-View-Controller pattern.
- * 
+ *
  * @author Julien LE SAUCE
- * @date 20 févr. 2016
  */
 public abstract class AbstractView extends JPanel implements Observer {
 
@@ -48,9 +47,6 @@ public abstract class AbstractView extends JPanel implements Observer {
     private final HashSet<Object> listeners;
     private boolean isGuiCreated;
 
-    /**
-     * Instanciates a view.
-     */
     public AbstractView() {
         super();
         this.listeners = new HashSet<>();
@@ -58,42 +54,42 @@ public abstract class AbstractView extends JPanel implements Observer {
     }
 
     /**
-     * Creates the view and specifies its parent.
-     * 
+     * Create the GUI components and specify parent view.
+     *
      * @param parent
      *            Specifies the parent view. By specifying the view's parent, one
      *            can ensures that the events triggered by sub-panels are
      *            transmitted to the parent's subscribers throw the parent's view.
      *            <code>null</code> can be specified to indicates that the view is
      *            the top component.
-     * @return Return this view instance.
+     * @return Return this view.
      */
     public AbstractView createGui (final AbstractView parent) {
         if (parent != null) {
             // Adds the parent's listeners to this view
             addAllListeners(parent.getListeners());
         }
-        createComponents();
-        setStyle();
-        addListeners();
+        createGuiComponents();
+        addGuiComponents();
+        addGuiListeners();
         this.isGuiCreated = true;
         return this;
     }
 
     /**
-     * Adds a new listener to the events triggered by this view.
-     * 
+     * Add a new listener to the events triggered by this view.
+     *
      * @param o
      *            The listener.
      */
-    public void addListener (Object o) {
+    public void addListener (final Object o) {
         this.listeners.add(o);
         LogManager.getLogger().trace("Object subscribed to {} : {}", getClass().getSimpleName(), o.toString());
     }
 
     /**
-     * Adds a new list of listeners to the events triggered by this view.
-     * 
+     * Add a new list of listeners to the events triggered by this view.
+     *
      * @param listeners
      *            The listeners.
      */
@@ -105,9 +101,9 @@ public abstract class AbstractView extends JPanel implements Observer {
     }
 
     /**
-     * Triggers an action event that will invoke, on all the listeners, the callback
+     * Trigger an action event that will invoke, on all the listeners, the callback
      * specified in the event.
-     * 
+     *
      * @param event
      *            The action event.
      */
@@ -118,26 +114,26 @@ public abstract class AbstractView extends JPanel implements Observer {
     }
 
     /**
-     * Creates the graphical components composing this view and initializes the
+     * Create the graphical components composing this view and initializes the
      * default values.
      */
-    protected abstract void createComponents ();
+    protected abstract void createGuiComponents ();
 
     /**
      * This method, once the components have been created calling
-     * {@link AbstractView#createComponents()}, adds the graphical components to the
+     * {@link AbstractView#createGuiComponents()}, adds the graphical components to the
      * view's panel.
      */
-    protected abstract void setStyle ();
+    protected abstract void addGuiComponents ();
 
     /**
-     * Adds the listeners to the events triggered by the graphical components.
+     * Add the listeners to the events triggered by the graphical components.
      */
-    protected abstract void addListeners ();
+    protected abstract void addGuiListeners ();
 
     /**
-     * Returns the listeners of this view.
-     * 
+     * Return the listeners of this view.
+     *
      * @return Listeners of this view.
      */
     public HashSet<Object> getListeners () {
@@ -145,8 +141,8 @@ public abstract class AbstractView extends JPanel implements Observer {
     }
 
     /**
-     * Pops a small user dialog showing the specified message.
-     * 
+     * Pop a small user dialog showing the specified message.
+     *
      * @param title
      *            Dialog's title.
      * @param msg
@@ -167,8 +163,8 @@ public abstract class AbstractView extends JPanel implements Observer {
     }
 
     /**
-     * Tells whereas this view has been created/initialized or not.
-     * 
+     * Tell whereas this view has been created/initialized or not.
+     *
      * @return <code>true</code> if this view has been instanciated,
      *         <code>false</code> otherwise.
      */
