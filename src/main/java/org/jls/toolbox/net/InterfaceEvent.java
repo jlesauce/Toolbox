@@ -38,7 +38,7 @@ public class InterfaceEvent {
     private final byte[] message; // Received / Sent message
 
     /**
-     * Instanciates a new event and specifies its source.
+     * Instantiates a new event and specifies its source.
      * 
      * @param src
      *            Source of the event.
@@ -48,7 +48,7 @@ public class InterfaceEvent {
     }
 
     /**
-     * Instanciates a new event and specifies its source and its network descriptor.
+     * Instantiates a new event and specifies its source and its network descriptor.
      * 
      * @param src
      *            Source of the event.
@@ -60,7 +60,7 @@ public class InterfaceEvent {
     }
 
     /**
-     * Instanciates a new event and specifies its source, network interface
+     * Instantiates a new event and specifies its source, network interface
      * descriptor and the received or sent message.
      * 
      * @param src

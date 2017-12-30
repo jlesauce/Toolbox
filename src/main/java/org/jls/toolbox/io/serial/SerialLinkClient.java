@@ -62,7 +62,7 @@ public class SerialLinkClient implements CommPortOwnershipListener, SerialPortEv
     private boolean isOpen;
 
     /**
-     * Instanciates a new serial link client. The serial link is initialized using
+     * Instantiates a new serial link client. The serial link is initialized using
      * the parameters specified by {@link SerialLinkParameters}. Once the serial
      * link has been instanciated, it has to be started calling the method
      * {@link SerialLinkClient#open()}. The received messages will be notified to

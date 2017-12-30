@@ -61,7 +61,7 @@ public class UDPMulticastClient implements Client, Runnable {
     private Thread ownThread;
 
     /**
-     * Instanciates a new UDP client. Once the class has been instanciated, the
+     * Instantiates a new UDP client. Once the class has been instanciated, the
      * socket is created and opened by calling {@link UDPMulticastClient#start()
      * start()} method, if the socket is successfully connected the thread is
      * started and listens for server messages until

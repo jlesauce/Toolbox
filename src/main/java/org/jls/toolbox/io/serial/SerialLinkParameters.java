@@ -44,7 +44,7 @@ public class SerialLinkParameters {
     private int recvTimeout;
 
     /**
-     * Instanciates a default set of parameters ("DEFAULT", 9600 bauds, no flow
+     * Instantiates a default set of parameters ("DEFAULT", 9600 bauds, no flow
      * control, 8 data bits, 1 stop bit, no parity).
      */
     public SerialLinkParameters() {
@@ -53,7 +53,7 @@ public class SerialLinkParameters {
     }
 
     /**
-     * Instanciates a new set of parameters using the specifies values.
+     * Instantiates a new set of parameters using the specifies values.
      * 
      * @param id
      *            Serial link's identifier.

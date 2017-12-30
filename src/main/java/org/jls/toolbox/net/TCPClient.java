@@ -66,7 +66,7 @@ public class TCPClient implements Client, Runnable {
     private int watchdog;
 
     /**
-     * Instanciates a new TCP client. Once the class has been instanciated, the
+     * Instantiates a new TCP client. Once the class has been instanciated, the
      * socket is created and opened by calling {@link TCPClient#start() start()}
      * method, if the socket is successfully connected the thread is started and
      * listens for server messages until {@link TCPClient#stop() stop()} method is
@@ -88,7 +88,7 @@ public class TCPClient implements Client, Runnable {
     }
 
     /**
-     * Instanciates a new TCP client. Once the class has been instanciated, the
+     * Instantiates a new TCP client. Once the class has been instanciated, the
      * specified socket is opened by calling {@link TCPClient#start() start()}
      * method, if the socket is successfully connected the thread is started and
      * listens for server messages until {@link TCPClient#stop() stop()} method is

@@ -35,7 +35,7 @@ import java.util.Observable;
 public abstract class AbstractModel extends Observable {
 
     /**
-     * Instanciates a new data model.
+     * Instantiates a new data model.
      */
     public AbstractModel() {
         super();

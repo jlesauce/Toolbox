@@ -135,7 +135,7 @@ public class ActionEvent extends java.awt.event.ActionEvent {
     }
 
     /**
-     * Instanciates an <code>ActionEvent</code> object from an
+     * Instantiates an <code>ActionEvent</code> object from an
      * {@link java.awt.event.ActionEvent} and specifies the graphical interface that
      * triggered the event.
      * 

@@ -50,7 +50,7 @@ public class Interface implements Comparable<Interface> {
     private NetworkInterface networkInterface;
 
     /**
-     * Instanciates a new default network interface descriptor, address is set to
+     * Instantiates a new default network interface descriptor, address is set to
      * localhost and port to 0.
      * 
      * @param id
@@ -63,7 +63,7 @@ public class Interface implements Comparable<Interface> {
     }
 
     /**
-     * Instanciates a new network interface descriptor and specifies its identifier
+     * Instantiates a new network interface descriptor and specifies its identifier
      * and connection port.
      * 
      * @param id
@@ -78,7 +78,7 @@ public class Interface implements Comparable<Interface> {
     }
 
     /**
-     * Instanciates a new network interface descriptor and specifies its identifier,
+     * Instantiates a new network interface descriptor and specifies its identifier,
      * address and connection port.
      * 
      * @param id
@@ -97,7 +97,7 @@ public class Interface implements Comparable<Interface> {
     }
 
     /**
-     * Instanciates a new network interface descriptor and specifies its identifier,
+     * Instantiates a new network interface descriptor and specifies its identifier,
      * address and connection port.
      * 
      * @param id
@@ -119,7 +119,7 @@ public class Interface implements Comparable<Interface> {
     }
 
     /**
-     * Instanciates a new network interface descriptor and specifies its identifier,
+     * Instantiates a new network interface descriptor and specifies its identifier,
      * address, interface address and connection port.
      * 
      * @param id

@@ -39,7 +39,7 @@ public class CommandListener implements java.awt.event.ActionListener {
     private final Set<?> listeners;
 
     /**
-     * Instanciates a new action.
+     * Instantiates a new action.
      * 
      * @param view
      *            Graphical interface publishing the user actions.

@@ -66,7 +66,7 @@ public class UDPServer implements Server, Runnable, InterfaceListener {
     private Thread ownThread;
 
     /**
-     * Instanciates a new UDP server using the specified interface descriptor. Once
+     * Instantiates a new UDP server using the specified interface descriptor. Once
      * the class has been instanciated, the socket server is created and opened by
      * calling {@link UDPServer#start() start()} method, if the socket is
      * successfully connected the thread is started and waits for clients messages

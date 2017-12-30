@@ -52,7 +52,7 @@ public class SerialLinkEvent {
     private final int eventType;
 
     /**
-     * Instanciates a new event.
+     * Instantiates a new event.
      * 
      * @param source
      *            Source of the event.

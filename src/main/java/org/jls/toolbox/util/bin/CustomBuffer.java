@@ -39,7 +39,7 @@ public class CustomBuffer {
     private final ByteBuffer buffer;
 
     /**
-     * Instanciates a {@link CustomBuffer} from the specified byte array.
+     * Instantiates a {@link CustomBuffer} from the specified byte array.
      * 
      * @param array
      *            The array that will back the new buffer.

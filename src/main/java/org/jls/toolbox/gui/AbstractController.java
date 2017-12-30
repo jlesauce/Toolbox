@@ -35,7 +35,7 @@ public abstract class AbstractController {
     private final AbstractModel model;
 
     /**
-     * Instanciates a default controller.
+     * Instantiates a default controller.
      * 
      * @param model
      *            Data model associated with this controller.

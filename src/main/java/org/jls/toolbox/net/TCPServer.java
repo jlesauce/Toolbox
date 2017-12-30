@@ -62,7 +62,7 @@ public class TCPServer implements Server, Runnable, InterfaceListener {
     private Thread ownThread;
 
     /**
-     * Instanciates a new TCP server using the specified interface descriptor. Once
+     * Instantiates a new TCP server using the specified interface descriptor. Once
      * the class has been instanciated, the socket server is created and opened by
      * calling {@link TCPServer#start() start()} method, if the socket is
      * successfully connected the thread is started and waits for clients to connect

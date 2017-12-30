@@ -67,7 +67,7 @@ public class Console extends JPanel {
     private JTextPane textPane;
 
     /**
-     * Instanciates a new default console.
+     * Instantiates a new default console.
      */
     public Console() {
         super();
