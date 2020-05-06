@@ -1,5 +1,17 @@
 # Toolbox
 
-## How to deploy library to Maven
+## How to install library to Maven local repository
 
-`mvn install`
+```console
+mvn install
+```
+
+## How to publish a new release
+
+```console
+./update_version.py
+git commit -am "Package release v<version-number>"
+git push
+git tag -a v1.4 -m "Package release v<version-number>"
+mvn clean deploy
+```
