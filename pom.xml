@@ -7,7 +7,7 @@
     <groupId>org.jls</groupId>
     <artifactId>toolbox</artifactId>
     <name>ToolBox</name>
-    <version>1.1</version>
+    <version>1.1</version> <!-- PROJECT.VERSION (Keep this tag) -->
     <packaging>jar</packaging>
     <url>https://github.com/jlesauce/Toolbox</url>
     <description>Personal toolbox library</description>
@@ -132,6 +132,14 @@
     </distributionManagement>
 
     <build>
+        <!-- Specify path to project .properties -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <!-- Compile Java sources -->
             <plugin>
