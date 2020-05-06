@@ -122,6 +122,15 @@
         </dependency>
     </dependencies>
 
+    <!-- Deploy library to GitHub packages -->
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Julien Le Sauce Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/jlesauce/Toolbox</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <!-- Compile Java sources -->
