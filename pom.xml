@@ -27,7 +27,7 @@
         <rxtx.version>2.1.7</rxtx.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
 
         <!-- Maven Plugin Versions -->
